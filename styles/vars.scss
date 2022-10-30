@@ -5,7 +5,18 @@ $darkPink: #C24362;
 $header-font-weight: 600;
 $header-font-size: 48px;
 
+$button-font-weight: 400;
+$button-font-size: 16px;
+
+//Mixins
+
 @mixin header-font() {
   font-weight: $header-font-weight;
   font-size: $header-font-size;
+}
+
+@mixin button-font() {
+  font-weight: $button-font-weight;
+  font-size: $button-font-size;
+  text-transform: uppercase;
 }
