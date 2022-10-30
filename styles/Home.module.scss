@@ -28,3 +28,7 @@
   justify-content: space-around;
   margin-top: 15vh;
 }
+
+.subheader {
+  @include vars.subheader-font(); 
+}
