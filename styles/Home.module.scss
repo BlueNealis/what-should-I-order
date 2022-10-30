@@ -14,3 +14,12 @@
   margin: 0;
   @include vars.header-font();
 }
+
+.button {
+  @include vars.button-font();
+  @include vars.button-style();
+}
+
+.actionBox {
+  display: flex; 
+}

@@ -8,6 +8,8 @@ $header-font-size: 48px;
 $button-font-weight: 400;
 $button-font-size: 16px;
 
+$border-radius: 6px;
+
 //Mixins
 
 @mixin header-font() {
@@ -19,4 +21,12 @@ $button-font-size: 16px;
   font-weight: $button-font-weight;
   font-size: $button-font-size;
   text-transform: uppercase;
+}
+
+@mixin button-style() {
+  background-color: $darkPink;
+  border-radius: $border-radius;
+  border: none;
+  padding: 5%;
+  color: white;
 }

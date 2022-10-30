@@ -16,6 +16,10 @@ export default function Home() {
       <h1 className={styles.header}> What Drink Should I Order? </h1>
       <p>cocktail suggestions for the indecisive</p>
       <Image src={cocktails} width={500} height={300} alt='Three cocktails'/>
+      <div className={styles.actionBox}>
+        <button className={styles.button}>Give Me a Random One!</button>
+        <button className={styles.button}>I have some preferences...</button>
+      </div>
     </div>
   )
 }
