@@ -1,5 +1,6 @@
 $orange: #EDA15C;
 $darkPink: #C24362;
+$blue: #3B488D;
 
 
 $header-font-weight: 600;
@@ -38,4 +39,8 @@ $border-radius: 6px;
   color: white;
   box-shadow: 3px 6px 13px rgba(0, 0, 0, 0.35);
   text-shadow: 1px 3px 5px rgba(0, 0, 0, 0.35);
+  font-family: 'Enriqueta', serif;
+   &:hover {
+     background-color: $blue;
+   }
 }
