@@ -12,4 +12,5 @@
 
 .header {
   margin: 0;
+  @include vars.header-font();
 }

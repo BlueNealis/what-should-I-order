@@ -1,2 +1,11 @@
 $orange: #EDA15C;
 $darkPink: #C24362;
+
+
+$header-font-weight: 600;
+$header-font-size: 48px;
+
+@mixin header-font() {
+  font-weight: $header-font-weight;
+  font-size: $header-font-size;
+}
