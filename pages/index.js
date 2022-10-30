@@ -13,7 +13,7 @@ export default function Home() {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
         <link href="https://fonts.googleapis.com/css2?family=Enriqueta:wght@400;500;600;700&display=swap" rel="stylesheet"/>
       </Head>
-      <h1> What Drink Should I Order? </h1>
+      <h1 className={styles.header}> What Drink Should I Order? </h1>
       <p>cocktail suggestions for the indecisive</p>
       <Image src={cocktails} width={500} height={300} alt='Three cocktails'/>
     </div>
