@@ -18,8 +18,12 @@
 .button {
   @include vars.button-font();
   @include vars.button-style();
+  width: 25vw;
+  padding: 3vw; 
 }
 
 .actionBox {
-  display: flex; 
+  display: flex;
+  width: 80%;
+  justify-content: space-around;
 }
