@@ -1,16 +1,17 @@
 import styles from './detailView.module.scss'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { randomCocktailCall } from '../../utils/apiCalls'
 import Image from 'next/image'
 
-export default function detailView() {
+const DetailView = () => {
 
-  const []
+  const [cocktail, setCocktail] = useState({})
 
   useEffect(() => {
     randomCocktailCall()
-    .then(info => console.log(info))
-
+    .then(info => {
+      setCocktail(info.drinks)
+    })
   }, [])
 
   return(
@@ -21,3 +22,4 @@ export default function detailView() {
     </div>
   )
 }
+export default DetailView
