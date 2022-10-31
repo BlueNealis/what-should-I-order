@@ -10,14 +10,15 @@ const DetailView = () => {
   useEffect(() => {
     randomCocktailCall()
     .then(info => {
-      setCocktail(info.drinks)
+      setCocktail(info.drinks[0])
     })
   }, [])
 
   return(
     <div className={styles.detailBox}>
-      <h1>hello</h1>
-      <p>Why wont this show stuff uhg</p>
+      <h1>{cocktail?.strDrink}</h1>
+      <p>{cocktail?.strInstructions}</p>
+      <Image src={cocktail?.strDrinkThumb} width={300} height={300} alt={cocktail?.strDrink}/>
       <ul></ul>
     </div>
   )
