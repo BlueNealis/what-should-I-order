@@ -14,6 +14,14 @@ const DetailView = () => {
     })
   }, [])
 
+  const getIngredients = () => {
+    for (let i = 1; i < 15; i++) {
+      let ingredient = `strIngredient${i}`;
+      let measurement = `strMeasure${i}`;
+
+    }
+  }
+
   return(
     <div className={styles.detailBox}>
       <h1>{cocktail?.strDrink}</h1>
