@@ -32,7 +32,9 @@ const DetailView = () => {
       <h1>{cocktail?.strDrink}</h1>
       <p>{cocktail?.strInstructions}</p>
       <Image src={cocktail?.strDrinkThumb} width={300} height={300} alt={cocktail?.strDrink}/>
-      <ul></ul>
+      <ul>{ingredients?.map((ingredient) => {
+        return <li>{ingredient}</li>
+      })}</ul>
     </div>
   )
 }
