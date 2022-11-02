@@ -16,6 +16,10 @@ export default function Cocktail() {
       </Head>
       <div className={styles.mainbox}>
         <DetailView />
+        <div className={styles.actionBox}>
+          <button className={styles.button}>Give Me Another!</button>
+          <button className={styles.button}>Actually I Have Some Preferences</button>
+        </div> 
       </div>
     </>
   )
