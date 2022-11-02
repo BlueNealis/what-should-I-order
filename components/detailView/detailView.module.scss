@@ -1,3 +1,60 @@
+@use "../../styles/vars";
+
 .detailBox {
-  width: 70vw;
+  position: relative;
+  background-color: vars.$plum;
+  color: white;
+  width: 75vw;
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: vars.$border-radius;
+  overflow-y: scroll;
+}
+
+.name {
+  display:flex;
+}
+
+.paragraph {
+  @include vars.paragraph-font();
+}
+
+.cocktailImage {
+  position: absolute;
+  left: 10%;
+  top: 20%;
+}
+
+.instructions {
+  @include vars.paragraph-font();
+  position: relative;
+  left: 23%;
+
+  width: 32vw;
+}
+
+.header {
+  @include vars.header-font();
+}
+
+.ingredients {
+  width: calc(100% - 2vw);
+  height: calc(100% - 2vh);
+  border: solid 1px white;
+  border-radius: vars.$border-radius;
+  overflow-y: scroll;
+}
+
+.ingredientsOuter {
+  position: relative;
+  left: 23%;
+  width: 32vw;
+  height: auto;
+  border: solid 1px white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: scroll;
 }

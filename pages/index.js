@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link'
 import cocktails from '../public/images/CocktailsMain.png'
 import styles from '../styles/Home.module.scss'
 
@@ -17,7 +18,9 @@ export default function Home() {
       <p className={styles.subheader}>cocktail suggestions for the indecisive</p>
       <Image src={cocktails} width={500} height={300} alt='Three cocktails'/>
       <div className={styles.actionBox}>
+      <Link href='cocktail/cocktail'>
         <button className={styles.button}>Give Me a Random One!</button>
+      </Link>
         <button className={styles.button}>I have some preferences...</button>
       </div>
     </div>

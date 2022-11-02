@@ -1,5 +1,45 @@
 @use "../../styles/vars";
 
 .mainbox {
-  background-color: vars.$plum;
+  background-color: vars.$orange;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+}
+
+.homebutton {
+  position: fixed;
+  z-index: 9999;
+  @include vars.button-font();
+  @include vars.button-style();
+  left: 1vw;
+  top: 1vh;
+  padding: 1vw; 
+}
+
+.button {
+  @include vars.button-font();
+  @include vars.button-style();
+  width: 30vw;
+  height: 15vh;
+  position: absolute;
+  bottom: 1%;
+}
+
+.buttonLeft {
+  right: 55%;
+}
+
+.buttonRight {
+  left: 55%;
+}
+
+.actionBox {
+  display: flex;
+  width: 80%;
+  justify-content: space-around;
 }

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Martel+Sans:wght@200;300;400&display=swap');
+
 $orange: #EDA15C;
 $darkPink: #C24362;
 $blue: #3B488D;
@@ -10,8 +12,11 @@ $header-font-size: 48px;
 $button-font-weight: 400;
 $button-font-size: 24px;
 
-$paragraph-font-weight: 400;
-$paragraph-font-size: 24px;
+$subheader-font-weight: 400;
+$subheader-font-size: 24px;
+
+$paragraph-font-weight: 300;
+$paragraph-font-size: 16px;
 
 $border-radius: 6px;
 
@@ -29,8 +34,14 @@ $border-radius: 6px;
 }
 
 @mixin subheader-font() {
-  font-size: $paragraph-font-size;
-  font-weight: $paragraph-font-weight;
+  font-size: $subheader-font-size;
+  font-weight: $subheader-font-weight;
+}
+
+@mixin paragraph-font() {
+  $paragraph-font-weight: 200;
+  $paragraph-font-size: 16px;
+  font-family: 'Martel Sans', sans-serif;
 }
 
 @mixin button-style() {
