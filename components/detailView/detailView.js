@@ -22,16 +22,18 @@ const DetailView = () => {
       let ingredient = `strIngredient${i}`
       let measurement = `strMeasure${i}`
       if(drink[ingredient] != null){
-        setIngredients(allIngredients => [...allIngredients,`${drink[measurement]}${drink[ingredient]}`])
+        setIngredients(allIngredients => [...allIngredients,`${drink[measurement]} ${drink[ingredient]}`])
       }
     }
   }
 
   return(
     <div className={styles.detailBox}>
-      <h1 className={styles.header}>{cocktail?.strDrink}</h1>
+      <div className={styles.name}>
+        <Image src={cocktail?.strDrinkThumb} width={300} height={300} alt={cocktail?.strDrink}/>
+        <h1 className={styles.header}>{cocktail?.strDrink}</h1>
+      </div>
       <p className={styles.paragraph}>{cocktail?.strInstructions}</p>
-      <Image src={cocktail?.strDrinkThumb} width={300} height={300} alt={cocktail?.strDrink}/>
       <ul>{ingredients?.map((ingredient) => {
         return <li className={styles.paragraph}>{ingredient}</li>
       })}</ul>
