@@ -34,9 +34,12 @@ const DetailView = () => {
         <h1 className={styles.header}>{cocktail?.strDrink}</h1>
       </div>
       <p className={styles.paragraph}>{cocktail?.strInstructions}</p>
-      <ul>{ingredients?.map((ingredient) => {
+      <div className={styles.ingredientsOuter}>
+        <p className={styles.paragraph}>Recipe:</p>
+        <ul className={styles.ingredients}>{ingredients?.map((ingredient) => {
         return <li className={styles.paragraph}>{ingredient}</li>
-      })}</ul>
+        })}</ul>
+      </div>
     </div>
   )
 }

@@ -12,7 +12,7 @@
 }
 
 .name {
-  display:flex; 
+  display:flex;
 }
 
 .paragraph {
@@ -22,4 +22,20 @@
 
 .header {
   @include vars.header-font();
+}
+
+.ingredients {
+  width: 30vw;
+  height: 25vh;
+  border: solid 1px white;
+border-radius: vars.$border-radius;
+}
+
+.ingredientsOuter {
+  width: 32vw;
+  height: 27vh;
+  border: solid 1px white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
