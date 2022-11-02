@@ -29,11 +29,11 @@ const DetailView = () => {
 
   return(
     <div className={styles.detailBox}>
-      <h1>{cocktail?.strDrink}</h1>
-      <p>{cocktail?.strInstructions}</p>
+      <h1 className={styles.header}>{cocktail?.strDrink}</h1>
+      <p className={styles.paragraph}>{cocktail?.strInstructions}</p>
       <Image src={cocktail?.strDrinkThumb} width={300} height={300} alt={cocktail?.strDrink}/>
       <ul>{ingredients?.map((ingredient) => {
-        return <li>{ingredient}</li>
+        return <li className={styles.paragraph}>{ingredient}</li>
       })}</ul>
     </div>
   )

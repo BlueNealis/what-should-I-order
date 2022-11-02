@@ -1,3 +1,18 @@
+@use "../../styles/vars";
+
 .detailBox {
+  background-color: vars.$plum;
+  color: white;
   width: 70vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.paragraph {
+  @include vars.subheader-font();
+}
+
+.header {
+  @include vars.header-font();
 }
