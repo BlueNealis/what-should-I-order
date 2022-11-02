@@ -1,0 +1,47 @@
+$orange: #EDA15C;
+$darkPink: #C24362;
+$blue: #3B488D;
+$plum: #472435;
+
+
+$header-font-weight: 600;
+$header-font-size: 48px;
+
+$button-font-weight: 400;
+$button-font-size: 24px;
+
+$paragraph-font-weight: 400;
+$paragraph-font-size: 24px;
+
+$border-radius: 6px;
+
+//Mixins
+
+@mixin header-font() {
+  font-weight: $header-font-weight;
+  font-size: $header-font-size;
+}
+
+@mixin button-font() {
+  font-weight: $button-font-weight;
+  font-size: $button-font-size;
+  text-transform: uppercase;
+}
+
+@mixin subheader-font() {
+  font-size: $paragraph-font-size;
+  font-weight: $paragraph-font-weight;
+}
+
+@mixin button-style() {
+  background-color: $darkPink;
+  border-radius: $border-radius;
+  border: none;
+  color: white;
+  box-shadow: 3px 6px 13px rgba(0, 0, 0, 0.35);
+  text-shadow: 1px 3px 5px rgba(0, 0, 0, 0.35);
+  font-family: 'Enriqueta', serif;
+   &:hover {
+     background-color: $blue;
+   }
+}
