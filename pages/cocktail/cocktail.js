@@ -17,9 +17,9 @@ export default function Cocktail() {
       <div className={styles.mainbox}>
         <DetailView />
         <div className={styles.actionBox}>
-          <button className={styles.button}>Give Me Another!</button>
-          <button className={styles.button}>Actually I Have Some Preferences</button>
-        </div> 
+          <button className={`${styles.button} ${styles.buttonLeft}`}>Give Me Another!</button>
+          <button className={`${styles.button} ${styles.buttonRight}`}>Actually I Have Some Preferences</button>
+        </div>
       </div>
     </>
   )

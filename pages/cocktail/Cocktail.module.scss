@@ -15,10 +15,17 @@
   @include vars.button-font();
   @include vars.button-style();
   width: 30vw;
-  padding: 3vw;
-  position: relative;
-  bottom: 2vw;
+  height: 15vh;
+  position: absolute;
+  bottom: 1%;
+}
 
+.buttonLeft {
+  right: 55%;
+}
+
+.buttonRight {
+  left: 55%;
 }
 
 .actionBox {
