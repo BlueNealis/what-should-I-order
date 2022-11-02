@@ -30,13 +30,14 @@ const DetailView = () => {
   return(
     <div className={styles.detailBox}>
       <div className={styles.name}>
-        <Image src={cocktail?.strDrinkThumb} width={300} height={300} alt={cocktail?.strDrink}/>
+        <Image className={styles.cocktailImage} src={cocktail?.strDrinkThumb} width={300} height={300} alt={cocktail?.strDrink}/>
         <h1 className={styles.header}>{cocktail?.strDrink}</h1>
       </div>
-      <p className={styles.paragraph}>{cocktail?.strInstructions}</p>
+      <p className={styles.instructions}>{cocktail?.strInstructions}</p>
       <div className={styles.ingredientsOuter}>
+        <ul className={styles.ingredients}>
         <p className={styles.paragraph}>Recipe:</p>
-        <ul className={styles.ingredients}>{ingredients?.map((ingredient) => {
+        {ingredients?.map((ingredient) => {
         return <li className={styles.paragraph}>{ingredient}</li>
         })}</ul>
       </div>
