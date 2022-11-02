@@ -11,6 +11,16 @@
 
 }
 
+.homebutton {
+  position: fixed;
+  z-index: 9999;
+  @include vars.button-font();
+  @include vars.button-style();
+  left: 1vw;
+  top: 1vh;
+  padding: 1vw; 
+}
+
 .button {
   @include vars.button-font();
   @include vars.button-style();

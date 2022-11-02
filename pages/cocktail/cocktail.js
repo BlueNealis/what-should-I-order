@@ -1,5 +1,6 @@
 import styles from './Cocktail.module.scss'
 import { useState } from 'react'
+import Link from 'next/link'
 import DetailView from '../../components/detailView/detailView'
 import Head from 'next/head'
 import Image from 'next/image'
@@ -19,6 +20,9 @@ export default function Cocktail() {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
         <link href="https://fonts.googleapis.com/css2?family=Enriqueta:wght@400;500;600;700&display=swap" rel="stylesheet"/>
       </Head>
+      <Link href="/">
+        <button className={styles.homebutton}>Home</button>
+      </Link>
       <div className={styles.mainbox}>
         <DetailView key={id}/>
         <div className={styles.actionBox}>
