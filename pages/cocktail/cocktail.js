@@ -1,10 +1,15 @@
 import styles from './Cocktail.module.scss'
+import { useState } from 'react'
 import DetailView from '../../components/detailView/detailView'
 import Head from 'next/head'
 import Image from 'next/image'
 
 
 export default function Cocktail() {
+  const [id, setId] = useState(Date.now())
+  const handleClick = (e) => {
+    setId(Date.now())
+  }
   return(
     <>
       <Head>
@@ -15,9 +20,9 @@ export default function Cocktail() {
         <link href="https://fonts.googleapis.com/css2?family=Enriqueta:wght@400;500;600;700&display=swap" rel="stylesheet"/>
       </Head>
       <div className={styles.mainbox}>
-        <DetailView />
+        <DetailView key={id}/>
         <div className={styles.actionBox}>
-          <button className={`${styles.button} ${styles.buttonLeft}`}>Give Me Another!</button>
+          <button onClick={ e => handleClick(e)}className={`${styles.button} ${styles.buttonLeft}`}>Give Me Another!</button>
           <button className={`${styles.button} ${styles.buttonRight}`}>Actually I Have Some Preferences</button>
         </div>
       </div>

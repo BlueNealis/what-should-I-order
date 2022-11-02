@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { randomCocktailCall } from '../../utils/apiCalls'
 import Image from 'next/image'
 
-const DetailView = () => {
+const DetailView = ({refresh}) => {
 
   const [cocktail, setCocktail] = useState({})
   const [ingredients, setIngredients] = useState([])
