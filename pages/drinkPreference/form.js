@@ -19,6 +19,24 @@ export default function form() {
       options={[{name: "I don't ew", checked: false},{name:"A little", checked:false}, {name:"A lot", checked:false}, {name:"I don't want booze", checked:false}]}
       handleClick={handleChange}
       key={1}/>
+      <PromptBox
+      prompt={"What type of Booze do you want?"}
+      options={[{name: "Vodka", checked: false},
+      {name:"Tequila", checked:false},
+      {name:"Gin", checked:false},
+      {name:"Whiskey", checked:false},
+      {name:"Bourban", checked:false},
+      {name:"Scotch", checked:false},
+      {name:"Wine", checked:false},
+      {name:"Champagne", checked:false},
+      {name:"Cider", checked:false},
+      {name:"Lager", checked:false},
+      {name:"Triple Sec", checked:false},
+      {name:"Vermouth", checked:false},
+      {name:"Rum", checked:false}
+    ]}
+      handleClick={handleChange}
+      key={1}/>
     </form>
   )
 }
