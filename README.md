@@ -1,34 +1,49 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+What Drink Should I Order ??
+![Cocktails](public/images/CocktailsMain.png)
 
-## Getting Started
+## Table of Contents
+- [Introduction](#introduction)
+- [Technologies](#technologies)
+- [Set Up](#set-up)
+- [Deployment Link](#deployment-link)
+- [Features](#features)
+- [Future Features](#future-features)
+- [Contributors](#contributors)
+- [Project Specifications](#project-specifications)
 
-First, run the development server:
+### Introduction
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+**What Drink Should I Order?** An app to help you pick a drink at the bar? For myself and my fellow indecisive humans.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Technologies
+- JavaScript
+- React
+- Cypress
+- NextJs
+- HTML
+- SCSS
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+### Set Up
+1. Clone this [repository](https://github.com/BlueNealis/what-should-I-order).
+2. `cd` into the directory.
+3. Run `npm i install`.
+4. Run `npm run dev`.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+### Planning
+Excalidraw Wireframe
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+![Wireframe](public/images/Which-Cocktail-wireframe.png)
 
-## Learn More
+Figma Mock Ups
 
-To learn more about Next.js, take a look at the following resources:
+![Dashboard](public/images/Dashboard.png)
+![DetailPage](public/images/RandomCocktailPage.png)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Features
+![Cocktail](public/images/RandomCocktail.mov)
+- User can get random cocktails from the Cocktail Database
+- User can click home and it will direct them to the home screen
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Contributors
+- [Blue Nealis](https://github.com/BlueNealis/)[LinkedIn](https://www.linkedin.com/in/blue-nealis/)
