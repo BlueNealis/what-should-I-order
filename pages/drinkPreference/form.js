@@ -21,7 +21,7 @@ export default function form() {
       {name:"A lot", checked:false},
       {name:"I don't want booze", checked:false}]}
       handleClick={handleChange}
-      key={1}/>
+      id={1}/>
 
       <PromptBox
       prompt={"What type of Booze do you want?"}
@@ -41,7 +41,7 @@ export default function form() {
       {name:"Brandy", checked:false}
     ]}
       handleClick={handleChange}
-      key={2}/>
+      id={2}/>
 
       <PromptBox
       prompt={"What type of flavors do you want?"}
@@ -71,7 +71,7 @@ export default function form() {
       {name:"Tobasco", checked:false}
     ]}
       handleClick={handleChange}
-      key={3}/>
+      id={3}/>
     </form>
   )
 }
