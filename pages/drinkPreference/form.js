@@ -19,6 +19,7 @@ export default function form() {
       options={[{name: "I don't ew", checked: false},{name:"A little", checked:false}, {name:"A lot", checked:false}, {name:"I don't want booze", checked:false}]}
       handleClick={handleChange}
       key={1}/>
+
       <PromptBox
       prompt={"What type of Booze do you want?"}
       options={[{name: "Vodka", checked: false},
@@ -36,7 +37,35 @@ export default function form() {
       {name:"Rum", checked:false}
     ]}
       handleClick={handleChange}
-      key={1}/>
+      key={2}/>
+      <PromptBox
+      prompt={"What type of flavors do you want?"}
+      options={[{name: "Grapefruit", checked: false},
+      {name:"Lime", checked:false},
+      {name:"Strawberry", checked:false},
+      {name:"Lemon", checked:false},
+      {name:"Chocolate", checked:false},
+      {name:"Coffee", checked:false},
+      {name:"Apple", checked:false},
+      {name:"Peach", checked:false},
+      {name:"Rose", checked:false},
+      {name:"Ginger", checked:false},
+      {name:"Elderflower", checked:false},
+      {name:"Cranberry", checked:false},
+      {name:"Tomato", checked:false},
+      {name:"Raspberry", checked:false},
+      {name:"Almond", checked:false},
+      {name:"Orange", checked:false},
+      {name:"Pineapple", checked:false},
+      {name:"Oaky", checked:false},
+      {name:"Mint", checked:false},
+      {name:"Banana", checked:false},
+      {name:"Cherry", checked:false},
+      {name:"Apricot", checked:false},
+      {name:"Passion Fruit", checked:false},
+    ]}
+      handleClick={handleChange}
+      key={2}/>
     </form>
   )
 }
