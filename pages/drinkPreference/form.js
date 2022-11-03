@@ -68,6 +68,7 @@ export default function form() {
       {name:"Cherry", checked:false},
       {name:"Apricot", checked:false},
       {name:"Passion Fruit", checked:false},
+      {name:"Tobasco", checked:false}
     ]}
       handleClick={handleChange}
       key={3}/>
