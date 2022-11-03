@@ -42,7 +42,6 @@ Figma Mock Ups
 
 
 ### Features
-![Cocktail](public/images/RandomCocktail.mov)
 - User can get random cocktails from the Cocktail Database
 - User can click home and it will direct them to the home screen
 
