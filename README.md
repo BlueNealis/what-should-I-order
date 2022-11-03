@@ -5,9 +5,9 @@ What Drink Should I Order ??
 - [Introduction](#introduction)
 - [Technologies](#technologies)
 - [Set Up](#set-up)
+- [Planning](#planning)
 - [Deployment Link](#deployment-link)
 - [Features](#features)
-- [Future Features](#future-features)
 - [Contributors](#contributors)
 - [Project Specifications](#project-specifications)
 
@@ -30,6 +30,7 @@ What Drink Should I Order ??
 4. Run `npm run dev`.
 
 ### Planning
+
 Excalidraw Wireframe
 
 ![Wireframe](public/images/Which-Cocktail-wireframe.png)
