@@ -16,7 +16,10 @@ export default function form() {
       <h1>Let's get some preferences</h1>
       <PromptBox
       prompt={"How Much Do You Want To Taste The Booze?"}
-      options={[{name: "I don't ew", checked: false},{name:"A little", checked:false}, {name:"A lot", checked:false}, {name:"I don't want booze", checked:false}]}
+      options={[{name: "I don't ew", checked: false},
+      {name:"A little", checked:false},
+      {name:"A lot", checked:false},
+      {name:"I don't want booze", checked:false}]}
       handleClick={handleChange}
       key={1}/>
 
@@ -34,10 +37,12 @@ export default function form() {
       {name:"Lager", checked:false},
       {name:"Triple Sec", checked:false},
       {name:"Vermouth", checked:false},
-      {name:"Rum", checked:false}
+      {name:"Rum", checked:false},
+      {name:"Brandy", checked:false}
     ]}
       handleClick={handleChange}
       key={2}/>
+
       <PromptBox
       prompt={"What type of flavors do you want?"}
       options={[{name: "Grapefruit", checked: false},
@@ -65,7 +70,7 @@ export default function form() {
       {name:"Passion Fruit", checked:false},
     ]}
       handleClick={handleChange}
-      key={2}/>
+      key={3}/>
     </form>
   )
 }
