@@ -1,0 +1,8 @@
+@use "../../styles/vars";
+
+.promptBox {
+  color: white;
+  background-color: vars.$plum;
+  @include vars.paragraph-font;
+  width: 80%;
+}

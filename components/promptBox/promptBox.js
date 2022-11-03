@@ -2,13 +2,13 @@ import styles from './promptBox.module.scss'
 
 
 export const PromptBox = ({prompt, options, handleClick, id}) => {
-  console.log(prompt)
   return(
-    <div>
+    <div className={styles.promptBox} key={id}>
       <h1>{prompt}</h1>
       {options.map((option) => {
-        return (<label key={Date.now()}>
+        return (<label key={`${option.name}-label`}>
         <input
+        key={option.name}
         name={option.name}
         type={"checkbox"}
         checked={option.checked}
