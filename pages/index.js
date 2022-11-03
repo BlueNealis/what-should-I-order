@@ -21,7 +21,9 @@ export default function Home() {
       <Link href='cocktail/cocktail'>
         <button className={styles.button}>Give Me a Random One!</button>
       </Link>
+      <Link href='drinkPreference/form'>
         <button className={styles.button}>I have some preferences...</button>
+      </Link>
       </div>
     </div>
   )
