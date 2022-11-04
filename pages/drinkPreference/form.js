@@ -31,6 +31,20 @@ export default function form() {
     "Apricot":false,
     "Passion Fruit":false,
     "Tobasco":false}
+  const alcoholType = {"Vodka":false,
+    "Tequila":false,
+    "Gin":false,
+    "Whiskey":false,
+    "Bourban":false,
+    "Scotch":false,
+    "Wine":false,
+    "Champagne":false,
+    "Cider":false,
+    "Lager":false,
+    "Triple Sec":false,
+    "Vermouth":false,
+    "Rum":false,
+    "Brandy":false}
   const handleChange = (e) => {
     console.log("hi",e.target.name)
   }
@@ -69,7 +83,7 @@ export default function form() {
 
       <PromptBox
       prompt={"What type of flavors do you want?"}
-      options={flavors}
+      options={flavor}
       handleClick={handleChange}
       id={6}/>
     </form>
