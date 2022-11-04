@@ -5,4 +5,15 @@
   background-color: vars.$plum;
   @include vars.paragraph-font;
   width: 80%;
+  border-radius: vars.$border-radius;
+  text-align: center;
+  overflow-y: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2%;
+}
+
+.optionSection {
+  width: 60%;
 }

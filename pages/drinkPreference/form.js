@@ -7,6 +7,30 @@ import Image from 'next/image'
 
 
 export default function form() {
+  const flavor = {Grapefruit:false,
+    Lime: false,
+    Strawberry:false,
+    Lemon:false,
+    "Chocolate":false,
+    "Coffee":false,
+    "Apple":false,
+    "Peach":false,
+    "Rose":false,
+    "Ginger":false,
+    "Elderflower":false,
+    "Cranberry":false,
+    "Tomato":false,
+    "Raspberry":false,
+    "Almond":false,
+    "Orange":false,
+    "Pineapple":false,
+    "Oaky":false,
+    "Mint":false,
+    "Banana":false,
+    "Cherry":false,
+    "Apricot":false,
+    "Passion Fruit":false,
+    "Tobasco":false}
   const handleChange = (e) => {
     console.log("hi",e.target.name)
   }
@@ -45,31 +69,7 @@ export default function form() {
 
       <PromptBox
       prompt={"What type of flavors do you want?"}
-      options={[{name: "Grapefruit", checked: false},
-      {name:"Lime", checked:false},
-      {name:"Strawberry", checked:false},
-      {name:"Lemon", checked:false},
-      {name:"Chocolate", checked:false},
-      {name:"Coffee", checked:false},
-      {name:"Apple", checked:false},
-      {name:"Peach", checked:false},
-      {name:"Rose", checked:false},
-      {name:"Ginger", checked:false},
-      {name:"Elderflower", checked:false},
-      {name:"Cranberry", checked:false},
-      {name:"Tomato", checked:false},
-      {name:"Raspberry", checked:false},
-      {name:"Almond", checked:false},
-      {name:"Orange", checked:false},
-      {name:"Pineapple", checked:false},
-      {name:"Oaky", checked:false},
-      {name:"Mint", checked:false},
-      {name:"Banana", checked:false},
-      {name:"Cherry", checked:false},
-      {name:"Apricot", checked:false},
-      {name:"Passion Fruit", checked:false},
-      {name:"Tobasco", checked:false}
-    ]}
+      options={flavors}
       handleClick={handleChange}
       id={6}/>
     </form>
