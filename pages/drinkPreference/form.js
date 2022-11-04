@@ -45,6 +45,10 @@ export default function form() {
     "Vermouth":false,
     "Rum":false,
     "Brandy":false}
+  const booziness = {"I don't ew":false,
+    "A little":false,
+    "A lot":false,
+    "I dont want booze":false}
   const handleChange = (e) => {
     console.log("hi",e.target.name)
   }
@@ -54,38 +58,21 @@ export default function form() {
       <h1>Let's get some preferences</h1>
       <PromptBox
       prompt={"How Much Do You Want To Taste The Booze?"}
-      options={[{name: "I don't ew", checked: false},
-      {name:"A little", checked:false},
-      {name:"A lot", checked:false},
-      {name:"I don't want booze", checked:false}]}
+      options={booziness}
       handleClick={handleChange}
-      id={4}/>
+      id={booziness}/>
 
       <PromptBox
       prompt={"What type of Booze do you want?"}
-      options={[{name: "Vodka", checked: false},
-      {name:"Tequila", checked:false},
-      {name:"Gin", checked:false},
-      {name:"Whiskey", checked:false},
-      {name:"Bourban", checked:false},
-      {name:"Scotch", checked:false},
-      {name:"Wine", checked:false},
-      {name:"Champagne", checked:false},
-      {name:"Cider", checked:false},
-      {name:"Lager", checked:false},
-      {name:"Triple Sec", checked:false},
-      {name:"Vermouth", checked:false},
-      {name:"Rum", checked:false},
-      {name:"Brandy", checked:false}
-    ]}
+      options={alcoholType}
       handleClick={handleChange}
-      id={5}/>
+      id={alcoholType}/>
 
       <PromptBox
       prompt={"What type of flavors do you want?"}
       options={flavor}
       handleClick={handleChange}
-      id={6}/>
+      id={flavor}/>
     </form>
   )
 }
