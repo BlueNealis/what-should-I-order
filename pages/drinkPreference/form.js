@@ -7,7 +7,7 @@ import Image from 'next/image'
 
 
 export default function form() {
-  const flavor = {Grapefruit:false,
+  const [flavor, setFlavor] = useState({Grapefruit:false,
     Lime: false,
     Strawberry:false,
     Lemon:false,
@@ -30,8 +30,8 @@ export default function form() {
     "Cherry":false,
     "Apricot":false,
     "Passion Fruit":false,
-    "Tobasco":false}
-  const alcoholType = {"Vodka":false,
+    "Tobasco":false})
+  const [alcoholType, setAlcoholType] = useState({"Vodka":false,
     "Tequila":false,
     "Gin":false,
     "Whiskey":false,
@@ -44,20 +44,25 @@ export default function form() {
     "Triple Sec":false,
     "Vermouth":false,
     "Rum":false,
-    "Brandy":false}
-  const booziness = {"I don't ew":false,
+    "Brandy":false})
+  const [booziness, setBooziness] = useState({"I don't ew":false,
     "A little":false,
     "A lot":false,
-    "I dont want booze":false}
+    "I dont want booze":false})
+
   const handleChange = (e) => {
-    console.log("hi",e.target.value, e.target.name)
     if(e.target.name === "alcoholType") {
-      console.log('what')
-      alcoholType[e.target.value] = true
+      let newState = alcoholType
+      newState[e.target.value] = true
+      setAlcoholType(newState)
     }else if(e.target.name === "flavor") {
-      flavor[e.target.value] = true
+      let newState = flavor
+      newState[e.target.value] = true
+      setFlavor(newState)
     }else if(e.target.name === "booziness") {
-      flavor[e.target.value] = true
+      let newState = booziness
+      newState[e.target.value] = true
+      setBooziness(newState)
     }
   }
 
