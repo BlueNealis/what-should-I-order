@@ -51,6 +51,14 @@ export default function form() {
     "I dont want booze":false}
   const handleChange = (e) => {
     console.log("hi",e.target.value, e.target.name)
+    if(e.target.name === "alcoholType") {
+      console.log('what')
+      alcoholType[e.target.value] = true
+    }else if(e.target.name === "flavor") {
+      flavor[e.target.value] = true
+    }else if(e.target.name === "booziness") {
+      flavor[e.target.value] = true
+    }
   }
 
   return(
