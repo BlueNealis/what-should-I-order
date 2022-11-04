@@ -11,7 +11,8 @@ export const PromptBox = ({prompt, options, handleClick, id}) => {
         return (<label key={`${option}-label`}>
         <input
         key={option}
-        name={option}
+        name={id}
+        value={option}
         type={"checkbox"}
         checked={options[option]}
         onChange={(e) => handleClick(e)}

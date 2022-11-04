@@ -50,7 +50,7 @@ export default function form() {
     "A lot":false,
     "I dont want booze":false}
   const handleChange = (e) => {
-    console.log("hi",e.target.name)
+    console.log("hi",e.target.value, e.target.name)
   }
 
   return(
@@ -60,19 +60,19 @@ export default function form() {
       prompt={"How Much Do You Want To Taste The Booze?"}
       options={booziness}
       handleClick={handleChange}
-      id={booziness}/>
+      id={"booziness"}/>
 
       <PromptBox
       prompt={"What type of Booze do you want?"}
       options={alcoholType}
       handleClick={handleChange}
-      id={alcoholType}/>
+      id={"alcoholType"}/>
 
       <PromptBox
       prompt={"What type of flavors do you want?"}
       options={flavor}
       handleClick={handleChange}
-      id={flavor}/>
+      id={"flavor"}/>
     </form>
   )
 }
