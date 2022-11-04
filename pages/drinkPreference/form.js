@@ -70,6 +70,10 @@ export default function form() {
     }
   }
 
+  const handleSubmit = (e) => {
+    e.preventDefault()
+  }
+
   return(
     <form>
       <h1>Let's get some preferences</h1>
@@ -93,6 +97,7 @@ export default function form() {
       options={flavor}
       handleClick={handleChange}
       id={"flavor"}/>
+      <button onClick={handleSubmit}>Get My Drink</button>
     </form>
   )
 }
