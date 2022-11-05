@@ -18,7 +18,7 @@
   @include vars.button-style();
   left: 1vw;
   top: 1vh;
-  padding: 1vw; 
+  padding: 1vw;
 }
 
 .button {
@@ -42,4 +42,30 @@
   display: flex;
   width: 80%;
   justify-content: space-around;
+}
+
+@media screen and (max-width: 768px) {
+  .mainbox {
+    height: 150vh;
+    overflow-y: scroll;
+    text-align: center;
+  }
+  .button {
+    width: 80vw;
+    position: relative;
+    left: 0;
+    right: 0;
+    height: 10vh;
+    margin: 3%;
+    font-size: 1.2rem;
+  }
+  .actionBox {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+
+
 }
