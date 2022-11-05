@@ -45,6 +45,27 @@
 }
 
 @media screen and (max-width: 768px) {
-  
+  .mainbox {
+    height: 100vh;
+    overflow-y: scroll;
+    text-align: center;
+  }
+  .button {
+    width: 80vw;
+    position: relative;
+    left: 0;
+    right: 0;
+    height: 10vh;
+    margin: 3%;
+    font-size: 1.2rem;
+  }
+  .actionBox {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+
 
 }
