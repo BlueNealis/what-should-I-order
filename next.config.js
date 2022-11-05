@@ -4,6 +4,9 @@ const nextConfig = {
   swcMinify: true,
   images: {
     domains: ["www.thecocktaildb.com"]
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
   }
 }
 
