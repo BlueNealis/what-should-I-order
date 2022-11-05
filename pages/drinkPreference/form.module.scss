@@ -3,9 +3,10 @@
 
 .wrapperForm {
   background-color: vars.$orange;
-  height: 100vh;
+  flex-wrap: wrap;
+  height: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
 
   form {
     display: flex;
@@ -14,6 +15,7 @@
     align-items: center;
     width: 80%;
   }
+
   button {
     @include vars.button-font();
     @include vars.button-style();
