@@ -64,7 +64,7 @@ export default function form() {
       setPromptKey(Date.now)
     }else if(e.target.name === "booziness") {
       let newState = booziness
-      newState[e.target.value] = !newState[e.target.value] 
+      newState[e.target.value] = !newState[e.target.value]
       setBooziness(newState)
       setPromptKey(Date.now)
     }
@@ -76,6 +76,9 @@ export default function form() {
 
   return(
     <div className={styles.wrapperForm}>
+      <Link href="/">
+        <button className={styles.homebutton}>Home</button>
+      </Link>
       <form>
         <h1>Let's get some preferences</h1>
         <PromptBox
