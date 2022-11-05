@@ -5,6 +5,7 @@
   background-color: vars.$plum;
   @include vars.paragraph-font;
   width: 90%;
+  height: calc(100% - 20vh);
   border-radius: vars.$border-radius;
   text-align: center;
   display: flex;
@@ -18,8 +19,7 @@
 
 .optionSection {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-column-gap: 0px;
   grid-row-gap: 0px;
   margin-bottom: 10%;
