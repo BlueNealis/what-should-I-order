@@ -16,7 +16,7 @@ export default function Home() {
       </Head>
       <h1 className={styles.header}> What Drink Should I Order? </h1>
       <p className={styles.subheader}>cocktail suggestions for the indecisive</p>
-      <Image src={cocktails} width={500} height={300} alt='Three cocktails'/>
+      <Image className={styles.cocktails} src={cocktails} width={500} height={300} alt='Three cocktails'/>
       <div className={styles.actionBox}>
       <Link href='cocktail/cocktail'>
         <button className={styles.button}>Give Me a Random One!</button>
