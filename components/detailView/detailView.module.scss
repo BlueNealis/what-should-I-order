@@ -63,8 +63,7 @@
 .detailBox {
   width: 90vw;
   padding: 2vw;
-  display: flex;
-  flex-direction: column;
+
 
   .name {
     font-size: 2.2rem;
@@ -72,7 +71,19 @@
   }
 
   .cocktailImage {
+    position: relative;
     margin-top: calc(2.2rem + 5%);
+  }
+
+  .instructions {
+    left: 0;
+    width: 80vw;
+  }
+
+  .ingredientsOuter {
+    width: 80vw;
+    overflow: visible;
+    left: 0;
   }
 }
 }
