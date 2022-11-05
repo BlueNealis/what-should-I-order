@@ -1,21 +1,25 @@
 import styles from './promptBox.module.scss'
 
 
-export const PromptBox = ({prompt, options, handleClick}) => {
-  console.log(prompt)
+export const PromptBox = ({prompt, options, handleClick, id}) => {
+  const optionKeys = Object.keys(options)
   return(
-    <div>
+    <div className={styles.promptBox} key={id}>
       <h1>{prompt}</h1>
-      {options.map((option) => {
-        return (<label>
+        <div className={styles.optionSection}>
+      {optionKeys.map((option) => {
+        return (<label key={`${option}-label`}>
         <input
-        name={option.name}
+        key={option}
+        name={id}
+        value={option}
         type={"checkbox"}
-        checked={option.checked}
+        checked={options[option]}
         onChange={(e) => handleClick(e)}
-        />{option.name}
+        />{option}
         </label>)
       })}
+        </div>
     </div>
   )
 }

@@ -1,1 +1,35 @@
 @use "../../styles/vars";
+
+
+.wrapperForm {
+  background-color: vars.$orange;
+  flex-wrap: wrap;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+  }
+
+  button {
+    @include vars.button-font();
+    @include vars.button-style();
+    padding: 2%;
+  }
+  
+  .homebutton {
+    position: fixed;
+    z-index: 9999;
+    @include vars.button-font();
+    @include vars.button-style();
+    left: 1vw;
+    top: 1vh;
+    padding: 1vw;
+  }
+
+}

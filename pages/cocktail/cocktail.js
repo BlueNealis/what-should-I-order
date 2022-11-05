@@ -27,7 +27,7 @@ export default function Cocktail() {
         <DetailView key={id}/>
         <div className={styles.actionBox}>
           <button onClick={ e => handleClick(e)}className={`${styles.button} ${styles.buttonLeft}`}>Give Me Another!</button>
-        <Link href='drinkPreference/form'>
+        <Link href='/drinkPreference/form'>
           <button className={`${styles.button} ${styles.buttonRight}`}>Actually I Have Some Preferences</button>
         </Link>
         </div>

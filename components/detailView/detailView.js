@@ -38,7 +38,7 @@ const DetailView = ({refresh}) => {
         <ul className={styles.ingredients}>
         <p className={styles.paragraph}>Recipe:</p>
         {ingredients?.map((ingredient) => {
-        return <li className={styles.paragraph}>{ingredient}</li>
+        return <li key={ingredient} className={styles.paragraph}>{ingredient}</li>
         })}</ul>
       </div>
     </div>
