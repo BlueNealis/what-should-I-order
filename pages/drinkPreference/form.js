@@ -6,7 +6,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 
 
-export default function form() {
+export default function Form() {
   const [flavor, setFlavor] = useState({Grapefruit:false,
     Lime: false,
     Strawberry:false,
