@@ -54,17 +54,17 @@ export default function form() {
   const handleChange = (e) => {
     if(e.target.name === "alcoholType") {
       let newState = alcoholType
-      newState[e.target.value] = true
+      newState[e.target.value] = !newState[e.target.value]
       setAlcoholType(newState)
       setPromptKey(Date.now)
     }else if(e.target.name === "flavor") {
       let newState = flavor
-      newState[e.target.value] = true
+      newState[e.target.value] = !newState[e.target.value]
       setFlavor(newState)
       setPromptKey(Date.now)
     }else if(e.target.name === "booziness") {
       let newState = booziness
-      newState[e.target.value] = true
+      newState[e.target.value] = !newState[e.target.value] 
       setBooziness(newState)
       setPromptKey(Date.now)
     }
@@ -75,29 +75,31 @@ export default function form() {
   }
 
   return(
-    <form>
-      <h1>Let's get some preferences</h1>
-      <PromptBox
-      key={promptKey+1}
-      prompt={"How Much Do You Want To Taste The Booze?"}
-      options={booziness}
-      handleClick={handleChange}
-      id={"booziness"}/>
+    <div className={styles.wrapperForm}>
+      <form>
+        <h1>Let's get some preferences</h1>
+        <PromptBox
+        key={promptKey+1}
+        prompt={"How Much Do You Want To Taste The Booze?"}
+        options={booziness}
+        handleClick={handleChange}
+        id={"booziness"}/>
 
-      <PromptBox
-      key={promptKey+2}
-      prompt={"What type of Booze do you want?"}
-      options={alcoholType}
-      handleClick={handleChange}
-      id={"alcoholType"}/>
+        <PromptBox
+        key={promptKey+2}
+        prompt={"What type of Booze do you want?"}
+        options={alcoholType}
+        handleClick={handleChange}
+        id={"alcoholType"}/>
 
-      <PromptBox
-      key={promptKey+3}
-      prompt={"What type of flavors do you want?"}
-      options={flavor}
-      handleClick={handleChange}
-      id={"flavor"}/>
-      <button onClick={handleSubmit}>Get My Drink</button>
-    </form>
+        <PromptBox
+        key={promptKey+3}
+        prompt={"What type of flavors do you want?"}
+        options={flavor}
+        handleClick={handleChange}
+        id={"flavor"}/>
+        <button onClick={handleSubmit}>Get My Drink</button>
+      </form>
+    </div>
   )
 }

@@ -12,6 +12,9 @@
   flex-direction: column;
   align-items: center;
   margin-bottom: 2%;
+  input[type="checkbox"] {
+    background-color: vars.$darkPink;
+  }
 }
 
 .optionSection {

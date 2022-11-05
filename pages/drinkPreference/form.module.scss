@@ -1,1 +1,21 @@
 @use "../../styles/vars";
+
+
+.wrapperForm {
+  background-color: vars.$orange;
+  height: 100vh;
+  display: flex;
+
+
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  button {
+    @include vars.button-font();
+    @include vars.button-style();
+    padding: 2%;
+  }
+}
