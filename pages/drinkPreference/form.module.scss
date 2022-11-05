@@ -5,13 +5,14 @@
   background-color: vars.$orange;
   height: 100vh;
   display: flex;
-
+  justify-content: space-around;
 
   form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 80%;
   }
   button {
     @include vars.button-font();
