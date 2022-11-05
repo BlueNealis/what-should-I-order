@@ -18,7 +18,7 @@
   @include vars.button-style();
   left: 1vw;
   top: 1vh;
-  padding: 1vw; 
+  padding: 1vw;
 }
 
 .button {
@@ -42,4 +42,9 @@
   display: flex;
   width: 80%;
   justify-content: space-around;
+}
+
+@media screen and (max-width: 768px) {
+  
+
 }

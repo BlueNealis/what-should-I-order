@@ -58,3 +58,21 @@
   align-items: center;
   overflow-y: scroll;
 }
+
+@media screen and (max-width: 768px) {
+.detailBox {
+  width: 90vw;
+  padding: 2vw;
+  display: flex;
+  flex-direction: column;
+
+  .name {
+    font-size: 2.2rem;
+    text-align: center;
+  }
+
+  .cocktailImage {
+    margin-top: calc(2.2rem + 5%);
+  }
+}
+}
