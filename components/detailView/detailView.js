@@ -10,18 +10,19 @@ const DetailView = ({data,refresh}) => {
 
   useEffect(() => {
     if(data != {}){
-      ingredientCocktailCall()
+      ingredientCocktailCall('vodka,coffee liqueur')
       .then(info => {
+        console.log('the info',info)
         setCocktail(info.drinks[0])
         getIngredients(info.drinks[0])
       })
-
-    }
+    }else{
     randomCocktailCall()
     .then(info => {
       setCocktail(info.drinks[0])
       getIngredients(info.drinks[0])
     })
+  }
   },[])
 
     const getIngredients = (drink) => {
