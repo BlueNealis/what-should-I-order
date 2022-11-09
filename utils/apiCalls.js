@@ -11,6 +11,7 @@ export const ingredientCocktailCall = (data) => {
 }
 
 export const getDrink = (id) => {
+  console.log('id',id)
   return fetch(`https://www.thecocktaildb.com/api/json/v2/${process.env.NEXT_PUBLIC_API_KEY}/lookup.php?i=${id}`)
     .then((response) => response.json())
 }

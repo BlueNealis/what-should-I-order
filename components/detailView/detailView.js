@@ -1,6 +1,6 @@
 import styles from './detailView.module.scss'
 import { useEffect, useState } from 'react'
-import { randomCocktailCall, ingredientCocktailCall } from '../../utils/apiCalls'
+import { randomCocktailCall, ingredientCocktailCall, getDrink } from '../../utils/apiCalls'
 import Image from 'next/image'
 
 const DetailView = ({data,refresh}) => {
@@ -12,9 +12,12 @@ const DetailView = ({data,refresh}) => {
     if(data != {}){
       ingredientCocktailCall('vodka,coffee liqueur')
       .then(info => {
-        console.log('the info',info)
         setCocktail(info.drinks[0])
-        getIngredients(info.drinks[0])
+        console.log('drink',info.drinks[0])
+        getDrink(info.drinks[0].idDrink)
+        .then(drink => {
+          getIngredients(drink.drinks[0])
+        })
       })
     }else{
     randomCocktailCall()
