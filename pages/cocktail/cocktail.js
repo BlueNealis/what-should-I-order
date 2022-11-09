@@ -10,7 +10,6 @@ import Image from 'next/image'
 export default function Cocktail() {
   const router = useRouter();
   const data = router.query;
-  console.log(data)
   const [id, setId] = useState(Date.now())
   const handleClick = (e) => {
     setId(Date.now())
@@ -28,7 +27,7 @@ export default function Cocktail() {
         <button className={styles.homebutton}>Home</button>
       </Link>
       <div className={styles.mainbox}>
-        <DetailView key={id}/>
+        <DetailView data={data} key={id}/>
         <div className={styles.actionBox}>
           <button onClick={ e => handleClick(e)}className={`${styles.button} ${styles.buttonLeft}`}>Give Me Another!</button>
         <Link href='/drinkPreference/form'>

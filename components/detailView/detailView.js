@@ -1,14 +1,22 @@
 import styles from './detailView.module.scss'
 import { useEffect, useState } from 'react'
-import { randomCocktailCall } from '../../utils/apiCalls'
+import { randomCocktailCall, ingredientCocktailCall } from '../../utils/apiCalls'
 import Image from 'next/image'
 
-const DetailView = ({refresh}) => {
+const DetailView = ({data,refresh}) => {
 
   const [cocktail, setCocktail] = useState({})
   const [ingredients, setIngredients] = useState([])
 
   useEffect(() => {
+    if(data != {}){
+      ingredientCocktailCall()
+      .then(info => {
+        setCocktail(info.drinks[0])
+        getIngredients(info.drinks[0])
+      })
+
+    }
     randomCocktailCall()
     .then(info => {
       setCocktail(info.drinks[0])
