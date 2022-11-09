@@ -13,7 +13,6 @@ const DetailView = ({data,refresh}) => {
       ingredientCocktailCall('vodka,coffee liqueur')
       .then(info => {
         setCocktail(info.drinks[0])
-        console.log('drink',info.drinks[0])
         getDrink(info.drinks[0].idDrink)
         .then(drink => {
           getIngredients(drink.drinks[0])

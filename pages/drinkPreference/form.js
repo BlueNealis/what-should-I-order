@@ -49,12 +49,17 @@ export default function Form() {
     "A little":false,
     "A lot":false,
     "I dont want booze":false})
+  const [formData, setFormData] = useState({})
   const [promptKey, setPromptKey] = useState(Date.now)
 
   const handleChange = (e) => {
     if(e.target.name === "alcoholType") {
       let newState = alcoholType
       newState[e.target.value] = !newState[e.target.value]
+        let oldForm = formData
+        oldForm[e.target.value]? delete oldForm[e.target.value] : oldForm[e.target.value] = true
+        console.log('form', oldForm)
+        setFormData(oldForm)
       setAlcoholType(newState)
       setPromptKey(Date.now)
     }else if(e.target.name === "flavor") {
@@ -101,7 +106,7 @@ export default function Form() {
         options={flavor}
         handleClick={handleChange}
         id={"flavor"}/>
-        <Link href={{pathname:'/cocktail/cocktail', query: alcoholType}}>
+        <Link href={{pathname:'/cocktail/cocktail', query: formData}}>
           <button>Get My Drink</button>
         </Link>
       </form>
