@@ -10,7 +10,8 @@ const DetailView = ({data,refresh}) => {
 
   useEffect(() => {
     if(Object.keys(data).length > 0){
-      ingredientCocktailCall('vodka,coffee liqueur')
+      let preferences = getPreferences();
+      ingredientCocktailCall(`${preferences[0]},${preferences[1]}`)
       .then(info => {
         setCocktail(info.drinks[0])
         getDrink(info.drinks[0].idDrink)
@@ -36,6 +37,21 @@ const DetailView = ({data,refresh}) => {
         setIngredients(allIngredients => [...allIngredients,`${drink[measurement]} ${drink[ingredient]}`])
       }
     }
+  }
+
+  const getPreferences = () => {
+    let preferenceKeys = Object.keys(data)
+    let preferenceStrings = [];
+    preferenceKeys.forEach((preference) => {
+      if(data[preference] === 'alcoholType'){
+        preferenceStrings.push([preference])
+      }else if (data[preference] === 'flavor') {
+        preferenceStrings.forEach((alcohol) => {
+          alcohol.push(preference)
+        })
+      }
+    })
+    return preferenceStrings[0]
   }
 
   return(
