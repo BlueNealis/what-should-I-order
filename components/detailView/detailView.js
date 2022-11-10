@@ -3,12 +3,13 @@ import { useEffect, useState } from 'react'
 import { randomCocktailCall, ingredientCocktailCall, getDrink } from '../../utils/apiCalls'
 import Image from 'next/image'
 
-const DetailView = ({data,refresh}) => {
+const DetailView = ({data, key}) => {
 
   const [cocktail, setCocktail] = useState({})
   const [ingredients, setIngredients] = useState([])
 
   useEffect(() => {
+    console.log('cocktail data', data, key)
     if(Object.keys(data).length > 0){
       let preferences = getPreferences();
       ingredientCocktailCall(`${preferences[0]},${preferences[1]}`)

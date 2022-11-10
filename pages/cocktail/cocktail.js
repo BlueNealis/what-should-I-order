@@ -9,9 +9,10 @@ import Image from 'next/image'
 
 export default function Cocktail() {
   const router = useRouter();
-  const data = router.query;
+  const [data, setData] = useState(router.query);
   const [id, setId] = useState(Date.now())
   const handleClick = (e) => {
+    setData({})
     setId(Date.now())
   }
   return(
