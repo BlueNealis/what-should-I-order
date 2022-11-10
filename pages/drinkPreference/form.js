@@ -1,5 +1,6 @@
 import styles from './form.module.scss'
 import { useState } from 'react'
+import {flavors} from '../../utils/flavors'
 import { PromptBox } from '../../components/promptBox/promptBox'
 import Link from 'next/link'
 import Head from 'next/head'
@@ -7,28 +8,7 @@ import Image from 'next/image'
 
 
 export default function Form() {
-  const [flavor, setFlavor] = useState({Grapefruit:false,
-    "Lime": {state: false},
-    Strawberry:{state: false},
-    Lemon:{state: false},
-    "Chocolate":{state: false},
-    "Coffee Liqueur":{state: false},
-    "Apple juice":{state: false},
-    "Peach Schnapps":{state: false},
-    "Ginger Ale":{state: false},
-    "Cranberry juice":{state: false},
-    "Tomato juice":{state: false},
-    "Raspberry syrup":{state: false},
-    "Almond Liqueur":{state: false},
-    "Orange Liqueur":{state: false},
-    "Pineapple juice":{state: false},
-    "Mint":{state: false},
-    "Banana Liqueur":{state: false},
-    Cream: {state: false},
-    "Cherry":{state: false},
-    "Coconut Cream": {state: false},
-    "Sweet and Sour": {state: false},
-    "Tobasco sauce":{state: false}})
+  const [allFlavors, setAllFlavors] = useState(flavors)
   const [alcoholType, setAlcoholType] = useState({"Vodka":false,
     "Tequila":false,
     "Gin":false,
@@ -58,10 +38,10 @@ export default function Form() {
       setAlcoholType(newState)
       setPromptKey(Date.now)
     }else if(e.target.name === "flavor") {
-      let newState = flavor
+      let newState = allFlavors
       newState[e.target.value].state = !newState[e.target.value].state
       updateFormChoices("flavor", e.target.value)
-      setFlavor(newState)
+      setAllFlavors(newState)
       setPromptKey(Date.now)
     }else if(e.target.name === "booziness") {
       let newState = booziness
@@ -106,7 +86,7 @@ export default function Form() {
         <PromptBox
         key={promptKey+3}
         prompt={"What type of flavors do you want?"}
-        options={flavor}
+        options={allFlavors}
         handleClick={handleChange}
         id={"flavor"}/>
         <Link href={{pathname:'/cocktail/cocktail', query: formData}}>
