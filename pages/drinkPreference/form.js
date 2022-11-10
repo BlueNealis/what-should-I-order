@@ -56,27 +56,27 @@ export default function Form() {
     if(e.target.name === "alcoholType") {
       let newState = alcoholType
       newState[e.target.value] = !newState[e.target.value]
-      updateFormChoices(e.target.value)
+      updateFormChoices("alcoholType", e.target.value)
       setAlcoholType(newState)
       setPromptKey(Date.now)
     }else if(e.target.name === "flavor") {
       let newState = flavor
       newState[e.target.value] = !newState[e.target.value]
-      updateFormChoices(e.target.value)
+      updateFormChoices("flavor", e.target.value)
       setFlavor(newState)
       setPromptKey(Date.now)
     }else if(e.target.name === "booziness") {
       let newState = booziness
       newState[e.target.value] = !newState[e.target.value]
-      updateFormChoices(e.target.value)
+      updateFormChoices("booziness",e.target.value)
       setBooziness(newState)
       setPromptKey(Date.now)
     }
   }
 
-  const updateFormChoices = (value) => {
+  const updateFormChoices = (promptType, value) => {
     let oldForm = formData
-    oldForm[value]? delete oldForm[value] : oldForm[value] = true
+    oldForm[value]? delete oldForm[value] : oldForm[value] = promptType
     setFormData(oldForm)
   }
 
