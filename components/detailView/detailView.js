@@ -9,7 +9,7 @@ const DetailView = ({data,refresh}) => {
   const [ingredients, setIngredients] = useState([])
 
   useEffect(() => {
-    if(data != {}){
+    if(Object.keys(data).length > 0){
       ingredientCocktailCall('vodka,coffee liqueur')
       .then(info => {
         setCocktail(info.drinks[0])
