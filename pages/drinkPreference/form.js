@@ -8,27 +8,27 @@ import Image from 'next/image'
 
 export default function Form() {
   const [flavor, setFlavor] = useState({Grapefruit:false,
-    "Lime juice": false,
-    Strawberry:false,
-    Lemon:false,
-    "Chocolate":false,
-    "Coffee Liqueur":false,
-    "Apple juice":false,
-    "Peach Schnapps":false,
-    "Ginger Ale":false,
-    "Cranberry juice":false,
-    "Tomato juice":false,
-    "Raspberry syrup":false,
-    "Almond Liqueur":false,
-    "Orange Liqueur":false,
-    "Pineapple juice":false,
-    "Mint":false,
-    "Banana Liqueur":false,
-    Cream: false,
-    "Cherry":false,
-    "Coconut Cream": false,
-    "Sweet and Sour": false,
-    "Tobasco sauce":false})
+    "Lime": {state: false},
+    Strawberry:{state: false},
+    Lemon:{state: false},
+    "Chocolate":{state: false},
+    "Coffee Liqueur":{state: false},
+    "Apple juice":{state: false},
+    "Peach Schnapps":{state: false},
+    "Ginger Ale":{state: false},
+    "Cranberry juice":{state: false},
+    "Tomato juice":{state: false},
+    "Raspberry syrup":{state: false},
+    "Almond Liqueur":{state: false},
+    "Orange Liqueur":{state: false},
+    "Pineapple juice":{state: false},
+    "Mint":{state: false},
+    "Banana Liqueur":{state: false},
+    Cream: {state: false},
+    "Cherry":{state: false},
+    "Coconut Cream": {state: false},
+    "Sweet and Sour": {state: false},
+    "Tobasco sauce":{state: false}})
   const [alcoholType, setAlcoholType] = useState({"Vodka":false,
     "Tequila":false,
     "Gin":false,
@@ -59,7 +59,7 @@ export default function Form() {
       setPromptKey(Date.now)
     }else if(e.target.name === "flavor") {
       let newState = flavor
-      newState[e.target.value] = !newState[e.target.value]
+      newState[e.target.value].state = !newState[e.target.value].state
       updateFormChoices("flavor", e.target.value)
       setFlavor(newState)
       setPromptKey(Date.now)
