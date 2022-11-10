@@ -9,13 +9,13 @@ const DetailView = ({data, key}) => {
   const [ingredients, setIngredients] = useState([])
 
   useEffect(() => {
-    console.log('cocktail data', data, key)
     if(Object.keys(data).length > 0){
       let preferences = getPreferences();
       ingredientCocktailCall(`${preferences[0]},${preferences[1]}`)
       .then(info => {
-        setCocktail(info.drinks[0])
-        getDrink(info.drinks[0].idDrink)
+        let index = getRandomNumber(info.drinks.length);
+        setCocktail(info.drinks[index])
+        getDrink(info.drinks[index].idDrink)
         .then(drink => {
           getIngredients(drink.drinks[0])
         })
@@ -40,6 +40,10 @@ const DetailView = ({data, key}) => {
     }
   }
 
+  const getRandomNumber = (ceiling) => {
+    return Math.floor(Math.random() * ceiling)
+  }
+  
   const getPreferences = () => {
     let preferenceKeys = Object.keys(data)
     let preferenceStrings = [];
