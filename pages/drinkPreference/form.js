@@ -1,6 +1,6 @@
 import styles from './form.module.scss'
 import { useState } from 'react'
-import {flavors} from '../../utils/flavors'
+import {flavors, alcohols} from '../../utils/flavors'
 import { PromptBox } from '../../components/promptBox/promptBox'
 import Link from 'next/link'
 import Head from 'next/head'
@@ -9,20 +9,7 @@ import Image from 'next/image'
 
 export default function Form() {
   const [allFlavors, setAllFlavors] = useState(flavors)
-  const [alcoholType, setAlcoholType] = useState({"Vodka":false,
-    "Tequila":false,
-    "Gin":false,
-    "Whiskey":false,
-    "Bourban":false,
-    "Scotch":false,
-    "Wine":false,
-    "Champagne":false,
-    "Cider":false,
-    "Lager":false,
-    "Triple Sec":false,
-    "Vermouth":false,
-    "Rum":false,
-    "Brandy":false})
+  const [alcoholType, setAlcoholType] = useState(alcohols)
   const [booziness, setBooziness] = useState({"I don't ew":false,
     "A little":false,
     "A lot":false,
@@ -33,7 +20,7 @@ export default function Form() {
   const handleChange = (e) => {
     if(e.target.name === "alcoholType") {
       let newState = alcoholType
-      newState[e.target.value] = !newState[e.target.value]
+      newState[e.target.value].state = !newState[e.target.value].state
       updateFormChoices("alcoholType", e.target.value)
       setAlcoholType(newState)
       setPromptKey(Date.now)

@@ -41,4 +41,3 @@ export const alcohols = {
     "Vermouth":{state: false, names:['vermouth']},
     "Rum":{state: false, names:['rum', 'dark rum', 'light rum', 'Cachaca']},
   }
-}
