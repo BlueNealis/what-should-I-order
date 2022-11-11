@@ -10,12 +10,15 @@ const DetailView = ({data, key}) => {
   const [ingredients, setIngredients] = useState([])
 
   useEffect(() => {
-    if(data.length > 0){
+    console.log('data on load', data)
+    if(Object.keys(data).length > 0){
       let preferences = getPreferences();
       ingredientCocktailCall(`${preferences[0]},${preferences[1]}`)
       .then(info => {
+        console.log(info)
         let index = getRandomNumber(info.drinks.length);
         setCocktail(info.drinks[index])
+
         getDrink(info.drinks[index].idDrink)
         .then(drink => {
           getIngredients(drink.drinks[0])
@@ -47,17 +50,14 @@ const DetailView = ({data, key}) => {
 
   const getPreferences = () => {
     let preferenceStrings = [];
-    data.forEach((preference) => {
+    Object.values(data).forEach((preference) => {
       if(flavors[preference]){
-        let searchTerm = flavors[preference].names(getRandomNumber(flavors[preference.names.length]))
+        let searchTerm = flavors[preference].names[getRandomNumber(flavors[preference].names.length)]
+        console.log('searchTerm', searchTerm)
         preferenceStrings.push(searchTerm)
-      }else if (data[preference] === 'flavor') {
-        preferenceStrings.forEach((alcohol) => {
-          alcohol.push(preference)
-        })
       }
     })
-    return preferenceStrings[0]
+    return preferenceStrings
   }
 
   return(

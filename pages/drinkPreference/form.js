@@ -1,5 +1,5 @@
 import styles from './form.module.scss'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import {flavors, alcohols} from '../../utils/flavors'
 import { PromptBox } from '../../components/promptBox/promptBox'
 import Link from 'next/link'
@@ -16,6 +16,12 @@ export default function Form() {
     "I dont want booze":false})
   const [formData, setFormData] = useState([])
   const [promptKey, setPromptKey] = useState(Date.now)
+
+  useEffect(() => {
+    if(formData !== []){
+      setFormData([])
+    }
+  },[])
 
   const handleChange = (e) => {
     if(e.target.name === "alcoholType") {
