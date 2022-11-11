@@ -14,7 +14,7 @@ export default function Form() {
     "A little":false,
     "A lot":false,
     "I dont want booze":false})
-  const [formData, setFormData] = useState({})
+  const [formData, setFormData] = useState([])
   const [promptKey, setPromptKey] = useState(Date.now)
 
   const handleChange = (e) => {
@@ -41,7 +41,7 @@ export default function Form() {
 
   const updateFormChoices = (promptType, value) => {
     let oldForm = formData
-    oldForm[value]? delete oldForm[value] : oldForm[value] = promptType
+    oldForm.includes(value)? oldForm.splice(oldForm.indexOf(value, 1)) : oldForm.push(value)
     setFormData(oldForm)
   }
 
