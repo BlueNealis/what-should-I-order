@@ -1,5 +1,6 @@
 import styles from './detailView.module.scss'
 import { useEffect, useState } from 'react'
+import {flavors, alcohols} from '../../utils/flavors'
 import { randomCocktailCall, ingredientCocktailCall, getDrink } from '../../utils/apiCalls'
 import Image from 'next/image'
 
@@ -9,7 +10,7 @@ const DetailView = ({data, key}) => {
   const [ingredients, setIngredients] = useState([])
 
   useEffect(() => {
-    if(Object.keys(data).length > 0){
+    if(data.length > 0){
       let preferences = getPreferences();
       ingredientCocktailCall(`${preferences[0]},${preferences[1]}`)
       .then(info => {
@@ -43,13 +44,13 @@ const DetailView = ({data, key}) => {
   const getRandomNumber = (ceiling) => {
     return Math.floor(Math.random() * ceiling)
   }
-  
+
   const getPreferences = () => {
-    let preferenceKeys = Object.keys(data)
     let preferenceStrings = [];
-    preferenceKeys.forEach((preference) => {
-      if(data[preference] === 'alcoholType'){
-        preferenceStrings.push([preference])
+    data.forEach((preference) => {
+      if(flavors[preference]){
+        let searchTerm = flavors[preference].names(getRandomNumber(flavors[preference.names.length]))
+        preferenceStrings.push(searchTerm)
       }else if (data[preference] === 'flavor') {
         preferenceStrings.forEach((alcohol) => {
           alcohol.push(preference)
