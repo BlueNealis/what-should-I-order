@@ -1,5 +1,6 @@
 import styles from './form.module.scss'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import {flavors, alcohols} from '../../utils/flavors'
 import { PromptBox } from '../../components/promptBox/promptBox'
 import Link from 'next/link'
 import Head from 'next/head'
@@ -7,67 +8,45 @@ import Image from 'next/image'
 
 
 export default function Form() {
-  const [flavor, setFlavor] = useState({Grapefruit:false,
-    Lime: false,
-    Strawberry:false,
-    Lemon:false,
-    "Chocolate":false,
-    "Coffee":false,
-    "Apple":false,
-    "Peach":false,
-    "Rose":false,
-    "Ginger":false,
-    "Elderflower":false,
-    "Cranberry":false,
-    "Tomato":false,
-    "Raspberry":false,
-    "Almond":false,
-    "Orange":false,
-    "Pineapple":false,
-    "Oaky":false,
-    "Mint":false,
-    "Banana":false,
-    "Cherry":false,
-    "Apricot":false,
-    "Passion Fruit":false,
-    "Tobasco":false})
-  const [alcoholType, setAlcoholType] = useState({"Vodka":false,
-    "Tequila":false,
-    "Gin":false,
-    "Whiskey":false,
-    "Bourban":false,
-    "Scotch":false,
-    "Wine":false,
-    "Champagne":false,
-    "Cider":false,
-    "Lager":false,
-    "Triple Sec":false,
-    "Vermouth":false,
-    "Rum":false,
-    "Brandy":false})
+  const [allFlavors, setAllFlavors] = useState(flavors)
+  const [alcoholType, setAlcoholType] = useState(alcohols)
   const [booziness, setBooziness] = useState({"I don't ew":false,
     "A little":false,
     "A lot":false,
     "I dont want booze":false})
+  const [formData, setFormData] = useState([])
   const [promptKey, setPromptKey] = useState(Date.now)
+
+  useEffect(() => {
+    setPromptKey(Date.now)
+  },[])
 
   const handleChange = (e) => {
     if(e.target.name === "alcoholType") {
       let newState = alcoholType
-      newState[e.target.value] = !newState[e.target.value]
+      newState[e.target.value].state = !newState[e.target.value].state
+      updateFormChoices("alcoholType", e.target.value)
       setAlcoholType(newState)
       setPromptKey(Date.now)
     }else if(e.target.name === "flavor") {
-      let newState = flavor
-      newState[e.target.value] = !newState[e.target.value]
-      setFlavor(newState)
+      let newState = allFlavors
+      newState[e.target.value].state = !newState[e.target.value].state
+      updateFormChoices("flavor", e.target.value)
+      setAllFlavors(newState)
       setPromptKey(Date.now)
     }else if(e.target.name === "booziness") {
       let newState = booziness
       newState[e.target.value] = !newState[e.target.value]
+      updateFormChoices("booziness",e.target.value)
       setBooziness(newState)
       setPromptKey(Date.now)
     }
+  }
+
+  const updateFormChoices = (promptType, value) => {
+    let oldForm = formData
+    oldForm.includes(value)? oldForm.splice(oldForm.indexOf(value, 1)) : oldForm.push(value)
+    setFormData(oldForm)
   }
 
   const handleSubmit = (e) => {
@@ -81,12 +60,6 @@ export default function Form() {
       </Link>
       <form>
         <h1>Let's get some preferences</h1>
-        <PromptBox
-        key={promptKey+1}
-        prompt={"How Much Do You Want To Taste The Booze?"}
-        options={booziness}
-        handleClick={handleChange}
-        id={"booziness"}/>
 
         <PromptBox
         key={promptKey+2}
@@ -98,10 +71,12 @@ export default function Form() {
         <PromptBox
         key={promptKey+3}
         prompt={"What type of flavors do you want?"}
-        options={flavor}
+        options={allFlavors}
         handleClick={handleChange}
         id={"flavor"}/>
-        <button onClick={handleSubmit}>Get My Drink</button>
+        <Link href={{pathname:'/cocktail/cocktail', query: formData}}>
+          <button>Get My Drink</button>
+        </Link>
       </form>
     </div>
   )

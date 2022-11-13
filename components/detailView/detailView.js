@@ -1,21 +1,44 @@
 import styles from './detailView.module.scss'
 import { useEffect, useState } from 'react'
-import { randomCocktailCall } from '../../utils/apiCalls'
+import {flavors, alcohols} from '../../utils/flavors'
+import { randomCocktailCall, ingredientCocktailCall, getDrink } from '../../utils/apiCalls'
 import Image from 'next/image'
 
-const DetailView = ({refresh}) => {
+const DetailView = ({data, key}) => {
 
   const [cocktail, setCocktail] = useState({})
   const [ingredients, setIngredients] = useState([])
 
   useEffect(() => {
+    if(Object.keys(data).length > 0){
+      let preferences = getPreferences();
+      ingredientCocktailCall(`${preferences[0]},${preferences[1]}`)
+      .then(info => {
+        if(info.drinks === 'None Found') {
+          window.alert(`No drinks found with search terms ${preferences[0]},${preferences[1]}`)
+          getRandomCocktail()
+        }
+
+        let index = getRandomNumber(info.drinks.length);
+        setCocktail(info.drinks[index])
+
+        getDrink(info.drinks[index].idDrink)
+        .then(drink => {
+          getIngredients(drink.drinks[0])
+        })
+      })
+    }else{
+      getRandomCocktail()
+  }
+  },[])
+
+  const getRandomCocktail = () => {
     randomCocktailCall()
     .then(info => {
       setCocktail(info.drinks[0])
       getIngredients(info.drinks[0])
     })
-  },[])
-
+  }
     const getIngredients = (drink) => {
       setIngredients([])
     for (let i = 1; i < 15; i++) {
@@ -25,6 +48,24 @@ const DetailView = ({refresh}) => {
         setIngredients(allIngredients => [...allIngredients,`${drink[measurement]} ${drink[ingredient]}`])
       }
     }
+  }
+
+  const getRandomNumber = (ceiling) => {
+    return Math.floor(Math.random() * ceiling)
+  }
+
+  const getPreferences = () => {
+    let preferenceStrings = [];
+    Object.values(data).forEach((preference) => {
+      if(flavors[preference]){
+        let searchTerm = flavors[preference].names[getRandomNumber(flavors[preference].names.length)]
+        preferenceStrings.push(searchTerm)
+      } else if(alcohols[preference]) {
+        let searchTerm = alcohols[preference].names[getRandomNumber(alcohols[preference].names.length)]
+        preferenceStrings.push(searchTerm)
+      }
+    })
+    return preferenceStrings
   }
 
   return(
