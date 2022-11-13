@@ -20,7 +20,7 @@ export default function Form() {
   useEffect(() => {
     setPromptKey(Date.now)
   },[])
-  
+
   const handleChange = (e) => {
     if(e.target.name === "alcoholType") {
       let newState = alcoholType
@@ -60,12 +60,6 @@ export default function Form() {
       </Link>
       <form>
         <h1>Let's get some preferences</h1>
-        <PromptBox
-        key={promptKey+1}
-        prompt={"How Much Do You Want To Taste The Booze?"}
-        options={booziness}
-        handleClick={handleChange}
-        id={"booziness"}/>
 
         <PromptBox
         key={promptKey+2}

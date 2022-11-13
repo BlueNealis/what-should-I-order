@@ -18,7 +18,7 @@ const DetailView = ({data, key}) => {
           window.alert(`No drinks found with search terms ${preferences[0]},${preferences[1]}`)
           getRandomCocktail()
         }
-        
+
         let index = getRandomNumber(info.drinks.length);
         setCocktail(info.drinks[index])
 
@@ -59,6 +59,9 @@ const DetailView = ({data, key}) => {
     Object.values(data).forEach((preference) => {
       if(flavors[preference]){
         let searchTerm = flavors[preference].names[getRandomNumber(flavors[preference].names.length)]
+        preferenceStrings.push(searchTerm)
+      } else if(alcohols[preferences]) {
+        let searchTerm = alcohols[preference].names[getRandomNumber(alcohols[preference].names.length)]
         preferenceStrings.push(searchTerm)
       }
     })
