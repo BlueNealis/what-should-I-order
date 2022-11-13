@@ -18,11 +18,9 @@ export default function Form() {
   const [promptKey, setPromptKey] = useState(Date.now)
 
   useEffect(() => {
-    if(formData !== []){
-      setFormData([])
-    }
+    setPromptKey(Date.now)
   },[])
-
+  
   const handleChange = (e) => {
     if(e.target.name === "alcoholType") {
       let newState = alcoholType
