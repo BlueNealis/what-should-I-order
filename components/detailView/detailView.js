@@ -35,19 +35,15 @@ const DetailView = ({data, key}) => {
   const getRandomCocktail = () => {
     randomCocktailCall()
     .then(info => {
-      setCocktail(info.drinks[0])
-      getIngredients(info.drinks[0])
+      console.log(info)
+      setCocktail(info[0])
+      getIngredients(info[0])
     })
   }
+
     const getIngredients = (drink) => {
       setIngredients([])
-    for (let i = 1; i < 15; i++) {
-      let ingredient = `strIngredient${i}`
-      let measurement = `strMeasure${i}`
-      if(drink[ingredient] != null){
-        setIngredients(allIngredients => [...allIngredients,`${drink[measurement]} ${drink[ingredient]}`])
-      }
-    }
+      setIngredients(drink.ingredients)
   }
 
   const getRandomNumber = (ceiling) => {
@@ -71,10 +67,10 @@ const DetailView = ({data, key}) => {
   return(
     <div className={styles.detailBox}>
       <div className={styles.name}>
-        <Image className={styles.cocktailImage} src={cocktail?.strDrinkThumb} width={300} height={300} alt={cocktail?.strDrink}/>
-        <h1 className={styles.header}>{cocktail?.strDrink}</h1>
+        <Image className={styles.cocktailImage} src={cocktail?.img_thumb_url} width={300} height={300} alt={cocktail?.name}/>
+        <h1 className={styles.header}>{cocktail?.name}</h1>
       </div>
-      <p className={styles.instructions}>{cocktail?.strInstructions}</p>
+      <p className={styles.instructions}>{cocktail?.description}</p>
       <div className={styles.ingredientsOuter}>
         <ul className={styles.ingredients}>
         <p className={styles.paragraph}>Recipe:</p>

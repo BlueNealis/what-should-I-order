@@ -1,13 +1,12 @@
 import React from 'react'
 
 export const randomCocktailCall = () => {
-  fetch("http://api-cocktails.herokuapp.com/api/v1/cocktails?name=ginger", {
+  return fetch("http://api-cocktails.herokuapp.com/api/v1/cocktails?random=1", {
     headers: {
       Authorization: `Token token=${process.env.NEXT_PUBLIC_NEW_KEY}`
     }
   })
   .then((response) => response.json())
-  .then((info) => console.log(info))
 }
 
 export const ingredientCocktailCall = (data) => {
