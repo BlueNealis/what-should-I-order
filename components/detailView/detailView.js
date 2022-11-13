@@ -60,7 +60,7 @@ const DetailView = ({data, key}) => {
       if(flavors[preference]){
         let searchTerm = flavors[preference].names[getRandomNumber(flavors[preference].names.length)]
         preferenceStrings.push(searchTerm)
-      } else if(alcohols[preferences]) {
+      } else if(alcohols[preference]) {
         let searchTerm = alcohols[preference].names[getRandomNumber(alcohols[preference].names.length)]
         preferenceStrings.push(searchTerm)
       }
