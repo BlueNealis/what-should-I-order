@@ -14,19 +14,15 @@ const DetailView = ({data, key}) => {
       let preferences = getPreferences();
       ingredientCocktailCall(`${preferences[0]},${preferences[1]}`)
       .then(info => {
+        console.log('drinks', info)
         if(info.drinks === 'None Found') {
           window.alert(`No drinks found with search terms ${preferences[0]},${preferences[1]}`)
           getRandomCocktail()
         }
-
-        let index = getRandomNumber(info.drinks.length);
-        setCocktail(info.drinks[index])
-
-        getDrink(info.drinks[index].idDrink)
-        .then(drink => {
-          getIngredients(drink.drinks[0])
+        let index = getRandomNumber(info.length);
+        setCocktail(info[index])
+        getIngredients(info[index])
         })
-      })
     }else{
       getRandomCocktail()
   }
@@ -53,6 +49,7 @@ const DetailView = ({data, key}) => {
 
   const getPreferences = () => {
     let preferenceStrings = [];
+    console.log(data)
     Object.values(data).forEach((preference) => {
       if(flavors[preference]){
         let searchTerm = flavors[preference].names[getRandomNumber(flavors[preference].names.length)]
