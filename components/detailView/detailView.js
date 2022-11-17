@@ -2,7 +2,7 @@ import styles from './detailView.module.scss'
 import { useEffect, useState } from 'react'
 import {flavors, alcohols} from '../../utils/flavors'
 import { randomCocktailCall, ingredientCocktailCall, getDrink } from '../../utils/apiCalls'
-import Image from 'next/image'
+import NextImage from 'next/image'
 
 const DetailView = ({data, key}) => {
 
@@ -68,7 +68,7 @@ const DetailView = ({data, key}) => {
   return(
     <div className={styles.detailBox}>
       <div className={styles.name}>
-        <Image className={styles.cocktailImage} src={cocktail["image_large_url"]} width={300} height={300} quality={80} alt={cocktail?.name}/>
+        <img className={styles.cocktailImage} src={cocktail["image_large_url"]} width={300} height={250} alt={cocktail?.name}/>
         <h1 className={styles.header}>{cocktail?.name}</h1>
       </div>
       <p className={styles.instructions}>{cocktail?.description}</p>
