@@ -10,8 +10,12 @@ export const randomCocktailCall = () => {
 }
 
 export const ingredientCocktailCall = (data) => {
-  return fetch(`https://www.thecocktaildb.com/api/json/v2/${process.env.NEXT_PUBLIC_API_KEY}/filter.php?i=${data}`)
-    .then((response) => response.json())
+  return fetch(`http://api-cocktails.herokuapp.com/api/v1/cocktails?ingredients[]=${data}`, {
+    headers: {
+      Authorization: `Token token=${process.env.NEXT_PUBLIC_NEW_KEY}`
+    }
+  })
+  .then((response) => response.json())
 }
 
 export const getDrink = (id) => {
