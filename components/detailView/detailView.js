@@ -1,7 +1,7 @@
 import styles from './detailView.module.scss'
 import { useEffect, useState } from 'react'
 import {flavors, alcohols} from '../../utils/flavors'
-import { randomCocktailCall, ingredientCocktailCall, getDrink } from '../../utils/apiCalls'
+import { randomCocktailCall, ingredientCocktailCall } from '../../utils/apiCalls'
 import NextImage from 'next/image'
 
 const DetailView = ({data, key}) => {
