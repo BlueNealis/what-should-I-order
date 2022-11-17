@@ -12,11 +12,11 @@ const DetailView = ({data, key}) => {
   useEffect(() => {
     if(Object.keys(data).length > 0){
       let preferences = getPreferences();
-      ingredientCocktailCall(`${preferences[0]},${preferences[1]}`)
+      ingredientCocktailCall(`${preferences}`)
       .then(info => {
         console.log('drinks', info)
-        if(info.drinks === 'None Found') {
-          window.alert(`No drinks found with search terms ${preferences[0]},${preferences[1]}`)
+        if(info.length === 0) {
+          window.alert(`No drinks found with search terms ${preferences}`)
           getRandomCocktail()
         }
         let index = getRandomNumber(info.length);
