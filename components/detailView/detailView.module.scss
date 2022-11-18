@@ -14,10 +14,6 @@
   padding: 7vw;
 }
 
-.name {
-  display:flex;
-}
-
 .paragraph {
   @include vars.paragraph-font();
 }
@@ -69,39 +65,35 @@
 }
 
 @media screen and (max-width: 768px) {
-  .header {
-    font-size: 2rem;
-    height: calc(2.2rem + 2%);
-    position: relative;
-    bottom: 70%;
-  }
-
 .detailBox {
+  position: inherit;
   width: 90vw;
   padding: 2vw;
-  height: 100%;
+  height: 105%;
   margin-top: 5%;
-
-  .name {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    margin-bottom: 2%;
+  .header {
+    position: relative;
+    top: 10vh;
+    font-size: 2rem;
+    height: calc(2.2rem + 2%);
   }
 
   .cocktailImage {
     position: relative;
+    margin-bottom: 7%;
     left: 0;
-    margin-top: calc(2.2rem + 5%);
   }
 
   .instructions {
     left: 0;
+    top: 7%;
+    min-height: 20vh;
     width: 80vw;
   }
 
   .ingredientsOuter {
-    width: 90vw;
+    width: 85vw;
+    top: 5%;
     overflow: visible;
     left: 0;
   }
