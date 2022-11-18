@@ -39,8 +39,9 @@
 
 .header {
   position: absolute;
-  top: 1%;
+  top: 3%;
   @include vars.header-font();
+  margin-bottom: 5%;
 }
 
 .ingredients {

@@ -8,7 +8,6 @@
   justify-content: center;
   align-items: center;
   position: relative;
-
 }
 
 .homebutton {
@@ -25,9 +24,9 @@
   @include vars.button-font();
   @include vars.button-style();
   width: 30vw;
-  height: 15vh;
+  height: 13vh;
   position: absolute;
-  bottom: 2px;
+  bottom: 1%;
 }
 
 .buttonLeft {
