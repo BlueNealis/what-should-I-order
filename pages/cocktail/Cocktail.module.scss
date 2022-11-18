@@ -2,7 +2,7 @@
 
 .mainbox {
   background-color: vars.$orange;
-  height: 90vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -27,7 +27,7 @@
   width: 30vw;
   height: 15vh;
   position: absolute;
-  bottom: 1%;
+  bottom: 2px;
 }
 
 .buttonLeft {
@@ -50,13 +50,14 @@
     overflow-y: scroll;
     text-align: center;
   }
+
   .button {
     width: 80vw;
     position: relative;
     left: 0;
     right: 0;
     height: 10vh;
-    margin: 3%;
+    margin-top: 3%;
     font-size: 1.2rem;
   }
   .actionBox {

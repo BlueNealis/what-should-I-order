@@ -31,10 +31,8 @@ const DetailView = ({data, key}) => {
   const getRandomCocktail = () => {
     randomCocktailCall()
     .then(info => {
-      console.log(info)
       setCocktail(info[0])
       getIngredients(info[0])
-      console.log(info[0]["image_thumb_url"], 'image')
     })
   }
 
@@ -65,7 +63,7 @@ const DetailView = ({data, key}) => {
   return(
     <div className={styles.detailBox}>
       <div className={styles.name}>
-        <img className={styles.cocktailImage} src={cocktail["image_large_url"] || cocktail["image_thumb_url"] } width={300} height={250} alt={cocktail?.name}/>
+        <img className={styles.cocktailImage} src={cocktail["image_large_url"] || cocktail["image_thumb_url"] } width={300} alt={cocktail?.name}/>
         <h1 className={styles.header}>{cocktail?.name}</h1>
       </div>
       <p className={styles.instructions}>{cocktail?.description}</p>
