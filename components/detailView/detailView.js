@@ -1,8 +1,8 @@
 import styles from './detailView.module.scss'
 import { useEffect, useState } from 'react'
 import {flavors, alcohols} from '../../utils/flavors'
-import { randomCocktailCall, ingredientCocktailCall, getDrink } from '../../utils/apiCalls'
-import Image from 'next/image'
+import { randomCocktailCall, ingredientCocktailCall } from '../../utils/apiCalls'
+import NextImage from 'next/image'
 
 const DetailView = ({data, key}) => {
 
@@ -12,21 +12,17 @@ const DetailView = ({data, key}) => {
   useEffect(() => {
     if(Object.keys(data).length > 0){
       let preferences = getPreferences();
-      ingredientCocktailCall(`${preferences[0]},${preferences[1]}`)
+      ingredientCocktailCall(`${preferences}`)
       .then(info => {
-        if(info.drinks === 'None Found') {
-          window.alert(`No drinks found with search terms ${preferences[0]},${preferences[1]}`)
+        console.log('drinks', info)
+        if(info.length === 0) {
+          window.alert(`No drinks found with search terms ${preferences}`)
           getRandomCocktail()
         }
-
-        let index = getRandomNumber(info.drinks.length);
-        setCocktail(info.drinks[index])
-
-        getDrink(info.drinks[index].idDrink)
-        .then(drink => {
-          getIngredients(drink.drinks[0])
+        let index = getRandomNumber(info.length);
+        setCocktail(info[index])
+        getIngredients(info[index])
         })
-      })
     }else{
       getRandomCocktail()
   }
@@ -35,19 +31,15 @@ const DetailView = ({data, key}) => {
   const getRandomCocktail = () => {
     randomCocktailCall()
     .then(info => {
-      setCocktail(info.drinks[0])
-      getIngredients(info.drinks[0])
+      setCocktail(info[0])
+      getIngredients(info[0])
     })
+    .catch(error => console.log(error))
   }
+
     const getIngredients = (drink) => {
       setIngredients([])
-    for (let i = 1; i < 15; i++) {
-      let ingredient = `strIngredient${i}`
-      let measurement = `strMeasure${i}`
-      if(drink[ingredient] != null){
-        setIngredients(allIngredients => [...allIngredients,`${drink[measurement]} ${drink[ingredient]}`])
-      }
-    }
+      setIngredients(drink.ingredients)
   }
 
   const getRandomNumber = (ceiling) => {
@@ -56,6 +48,7 @@ const DetailView = ({data, key}) => {
 
   const getPreferences = () => {
     let preferenceStrings = [];
+    console.log(data)
     Object.values(data).forEach((preference) => {
       if(flavors[preference]){
         let searchTerm = flavors[preference].names[getRandomNumber(flavors[preference].names.length)]
@@ -71,10 +64,10 @@ const DetailView = ({data, key}) => {
   return(
     <div className={styles.detailBox}>
       <div className={styles.name}>
-        <Image className={styles.cocktailImage} src={cocktail?.strDrinkThumb} width={300} height={300} alt={cocktail?.strDrink}/>
-        <h1 className={styles.header}>{cocktail?.strDrink}</h1>
+        <img className={styles.cocktailImage} src={cocktail["image_large_url"] || cocktail["image_thumb_url"] } width={300} height={250} alt={cocktail?.name}/>
+        <h1 className={styles.header}>{cocktail?.name}</h1>
       </div>
-      <p className={styles.instructions}>{cocktail?.strInstructions}</p>
+      <p className={styles.instructions}>{cocktail?.description}</p>
       <div className={styles.ingredientsOuter}>
         <ul className={styles.ingredients}>
         <p className={styles.paragraph}>Recipe:</p>

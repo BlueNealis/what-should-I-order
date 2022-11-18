@@ -1,17 +1,24 @@
 import React from 'react'
 
 export const randomCocktailCall = () => {
-  return fetch(`https://www.thecocktaildb.com/api/json/v2/${process.env.NEXT_PUBLIC_API_KEY}/random.php`)
-  .then((response) => response.json())
+  return fetch("http://api-cocktails.herokuapp.com/api/v1/cocktails?random=1", {
+    headers: {
+      Authorization: `Token token=${process.env.NEXT_PUBLIC_NEW_KEY}`
+    }
+  })
+  .then((response) => {
+    if(response.ok) {
+    return response.json()
+  }
+  throw new Error('Something went wrong')
+})
 }
 
 export const ingredientCocktailCall = (data) => {
-  return fetch(`https://www.thecocktaildb.com/api/json/v2/${process.env.NEXT_PUBLIC_API_KEY}/filter.php?i=${data}`)
-    .then((response) => response.json())
-}
-
-export const getDrink = (id) => {
-  console.log('id',id)
-  return fetch(`https://www.thecocktaildb.com/api/json/v2/${process.env.NEXT_PUBLIC_API_KEY}/lookup.php?i=${id}`)
-    .then((response) => response.json())
+  return fetch(`http://api-cocktails.herokuapp.com/api/v1/cocktails?ingredients_only[]=${data}`, {
+    headers: {
+      Authorization: `Token token=${process.env.NEXT_PUBLIC_NEW_KEY}`
+    }
+  })
+  .then((response) => response.json())
 }

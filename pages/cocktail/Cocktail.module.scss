@@ -2,13 +2,12 @@
 
 .mainbox {
   background-color: vars.$orange;
-  height: 90vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
-
 }
 
 .homebutton {
@@ -25,7 +24,7 @@
   @include vars.button-font();
   @include vars.button-style();
   width: 30vw;
-  height: 15vh;
+  height: 13vh;
   position: absolute;
   bottom: 1%;
 }
@@ -46,17 +45,18 @@
 
 @media screen and (max-width: 768px) {
   .mainbox {
-    height: 150vh;
+    height: 160vh;
     overflow-y: scroll;
     text-align: center;
   }
+
   .button {
     width: 80vw;
     position: relative;
     left: 0;
     right: 0;
     height: 10vh;
-    margin: 3%;
+    margin-top: 3%;
     font-size: 1.2rem;
   }
   .actionBox {
