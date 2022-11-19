@@ -44,7 +44,7 @@ Figma Mock Ups
 ### Features
 - User can get random cocktails from the Cocktail Database
 - User can click home and it will direct them to the home screen
-- user can choose from flavor profiles for drink choice
+- User can choose from flavor profiles for custom cocktail suggestions 
 
 ### Contributors
 - [Blue Nealis](https://github.com/BlueNealis/)[LinkedIn](https://www.linkedin.com/in/blue-nealis/)
