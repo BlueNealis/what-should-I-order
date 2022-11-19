@@ -1,4 +1,4 @@
-What Drink Should I Order ??
+What Drink Should I Order??
 ![Cocktails](public/images/CocktailsMain.png)
 
 ## Table of Contents
@@ -44,6 +44,7 @@ Figma Mock Ups
 ### Features
 - User can get random cocktails from the Cocktail Database
 - User can click home and it will direct them to the home screen
+- user can choose from flavor profiles for drink choice
 
 ### Contributors
 - [Blue Nealis](https://github.com/BlueNealis/)[LinkedIn](https://www.linkedin.com/in/blue-nealis/)
