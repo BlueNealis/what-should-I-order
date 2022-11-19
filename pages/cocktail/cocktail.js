@@ -11,6 +11,7 @@ export default function Cocktail() {
   const router = useRouter();
   const [data, setData] = useState(router.query);
   const [id, setId] = useState(Date.now())
+  const [href, setHref] = useState('/drinkPreference/form')
   const handleClick = (e) => {
     setData({})
     setId(Date.now())
@@ -31,7 +32,7 @@ export default function Cocktail() {
         <DetailView data={data} key={id}/>
         <div className={styles.actionBox}>
           <button onClick={ e => handleClick(e)}className={`${styles.button} ${styles.buttonLeft}`}>Give Me Another!</button>
-        <Link href='/drinkPreference/form'>
+        <Link href={href}>
           <button className={`${styles.button} ${styles.buttonRight}`}>Actually I Have Some Preferences</button>
         </Link>
         </div>
