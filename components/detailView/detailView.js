@@ -14,10 +14,11 @@ const DetailView = ({data, key}) => {
       let preferences = getPreferences();
       ingredientCocktailCall(`${preferences}`)
       .then(info => {
-        console.log('drinks', info)
+        console.log('drinks', info.length)
         if(info.length === 0) {
           window.alert(`No drinks found with search terms ${preferences}`)
           getRandomCocktail()
+          return
         }
         let index = getRandomNumber(info.length);
         setCocktail(info[index])
