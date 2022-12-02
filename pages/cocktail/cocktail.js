@@ -13,6 +13,7 @@ export default function Cocktail() {
   const [id, setId] = useState(Date.now())
   const [href, setHref] = useState('/drinkPreference/form')
   const [buttonText, setButtonText] = useState('')
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleClick = (e) => {
     if(e.target.name === 'randomButton'){
@@ -24,12 +25,17 @@ export default function Cocktail() {
 
   }
 
+  const handleNoMatch = (preferences) => {
+    setData({})
+    setId(Date.now())
+    setErrorMessage(`Sorry we didnt find a drink with ${preferences} here's a random one instead!`)
+  }
+
   useEffect(() => {
     if(Object.keys(data).length > 0) {
       setHref(window.location.href)
       setButtonText('Same Preferences Different Drink..')
     }else{
-
       setButtonText('Actually I have Some Preferences')
     }
   }, [])
@@ -47,7 +53,8 @@ export default function Cocktail() {
         <button className={styles.homebutton}>Home</button>
       </Link>
       <div className={styles.mainbox}>
-        <DetailView data={data} key={id}/>
+        <p>{errorMessage}</p>
+        <DetailView data={data} key={id} handleNoMatch={handleNoMatch}/>
         <div className={styles.actionBox}>
           <button onClick={ e => handleClick(e)}name='randomButton' className={`${styles.button} ${styles.buttonLeft}`}>Give Me Another!</button>
         <Link href={href}>
