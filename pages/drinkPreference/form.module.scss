@@ -4,7 +4,7 @@
 .wrapperForm {
   background-color: vars.$orange;
   flex-wrap: wrap;
-  height: 100%;
+  height: 70%;
   display: flex;
   justify-content: center;
 
@@ -21,7 +21,12 @@
     @include vars.button-style();
     padding: 2%;
   }
-  
+
+  .drinkButton {
+    position: relative;
+    bottom: 6vh;
+  }
+
   .homebutton {
     position: fixed;
     z-index: 9999;

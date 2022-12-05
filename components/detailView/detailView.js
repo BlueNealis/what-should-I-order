@@ -22,6 +22,7 @@ const DetailView = ({data, key, handleNoMatch}) => {
   const getCocktailByIngredient = async (preferences) => {
     ingredientCocktailCall(`${preferences}`)
     .then(info => {
+      console.log(preferences)
       if(info.length === 0) {
         randomCocktailCall()
         handleNoMatch(preferences)

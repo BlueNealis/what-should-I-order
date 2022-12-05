@@ -5,7 +5,7 @@
   background-color: vars.$plum;
   @include vars.paragraph-font;
   width: 90%;
-  height: calc(100% - 20vh);
+  height: 40vh;
   border-radius: vars.$border-radius;
   text-align: center;
   display: flex;

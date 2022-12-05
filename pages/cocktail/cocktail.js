@@ -17,10 +17,10 @@ export default function Cocktail() {
 
   const handleClick = (e) => {
     if(e.target.name === 'randomButton'){
-    setData({})
-    setId(Date.now())
+      setData({})
+      setId(Date.now())
   } else if(e.target.name === 'preferenceButton') {
-    setId(Date.now())
+      setId(Date.now())
   }
 
   }
