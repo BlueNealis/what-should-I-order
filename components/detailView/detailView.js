@@ -13,13 +13,13 @@ const DetailView = ({data, key, handleNoMatch}) => {
   useEffect(() => {
     if(Object.keys(data).length > 0){
       let preferences = getPreferences()
-      getCocktailByIngredient(preferences)
+      getCocktailByIngredient(Object.values(data))
     }else{
       getRandomCocktail()
   }
   },[])
 
-  const getCocktailByIngredient = (preferences) => {
+  const getCocktailByIngredient = async (preferences) => {
     ingredientCocktailCall(`${preferences}`)
     .then(info => {
       if(info.length === 0) {

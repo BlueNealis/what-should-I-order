@@ -15,7 +15,7 @@ export const randomCocktailCall = () => {
 }
 
 export const ingredientCocktailCall = (data) => {
-  return fetch(`https://api-cocktails.herokuapp.com/api/v1/cocktails?ingredients_only[]=${data}`, {
+  return fetch(`https://api-cocktails.herokuapp.com/api/v1/cocktails?ingredients[]=${data}`, {
     headers: {
       Authorization: `Token token=${process.env.NEXT_PUBLIC_NEW_KEY}`
     }
