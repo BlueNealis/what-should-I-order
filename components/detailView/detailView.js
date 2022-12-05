@@ -4,29 +4,37 @@ import {flavors, alcohols} from '../../utils/flavors'
 import { randomCocktailCall, ingredientCocktailCall } from '../../utils/apiCalls'
 import NextImage from 'next/image'
 
-const DetailView = ({data, key}) => {
+const DetailView = ({data, key, handleNoMatch}) => {
 
   const [cocktail, setCocktail] = useState({})
   const [ingredients, setIngredients] = useState([])
+  const [errorMessage, setErrorMessage] = useState('')
 
   useEffect(() => {
     if(Object.keys(data).length > 0){
-      let preferences = getPreferences();
-      ingredientCocktailCall(`${preferences}`)
-      .then(info => {
-        console.log('drinks', info)
-        if(info.length === 0) {
-          window.alert(`No drinks found with search terms ${preferences}`)
-          getRandomCocktail()
-        }
-        let index = getRandomNumber(info.length);
-        setCocktail(info[index])
-        getIngredients(info[index])
-        })
+      let preferences = getPreferences()
+      getCocktailByIngredient(Object.values(data))
     }else{
       getRandomCocktail()
   }
   },[])
+
+  const getCocktailByIngredient = async (preferences) => {
+    ingredientCocktailCall(`${preferences}`)
+    .then(info => {
+      console.log(preferences)
+      if(info.length === 0) {
+        randomCocktailCall()
+        handleNoMatch(preferences)
+        return
+        }else{
+        let index = getRandomNumber(info.length);
+        setCocktail(info[index])
+        getIngredients(info[index])
+        return true
+    }
+      })
+  }
 
   const getRandomCocktail = () => {
     randomCocktailCall()
@@ -48,7 +56,6 @@ const DetailView = ({data, key}) => {
 
   const getPreferences = () => {
     let preferenceStrings = [];
-    console.log(data)
     Object.values(data).forEach((preference) => {
       if(flavors[preference]){
         let searchTerm = flavors[preference].names[getRandomNumber(flavors[preference].names.length)]
@@ -75,6 +82,7 @@ const DetailView = ({data, key}) => {
         return <li key={ingredient} className={styles.paragraph}>{ingredient}</li>
         })}</ul>
       </div>
+      <h1>{errorMessage}</h1>
     </div>
   )
 }

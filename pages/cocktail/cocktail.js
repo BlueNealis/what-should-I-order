@@ -1,5 +1,5 @@
 import styles from './Cocktail.module.scss'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import DetailView from '../../components/detailView/detailView'
@@ -12,10 +12,34 @@ export default function Cocktail() {
   const [data, setData] = useState(router.query);
   const [id, setId] = useState(Date.now())
   const [href, setHref] = useState('/drinkPreference/form')
+  const [buttonText, setButtonText] = useState('')
+  const [errorMessage, setErrorMessage] = useState('');
+
   const handleClick = (e) => {
+    if(e.target.name === 'randomButton'){
+      setData({})
+      setId(Date.now())
+  } else if(e.target.name === 'preferenceButton') {
+      setId(Date.now())
+  }
+
+  }
+
+  const handleNoMatch = (preferences) => {
     setData({})
     setId(Date.now())
+    setErrorMessage(`Sorry we didnt find a drink with ${preferences} here's a random one instead!`)
   }
+
+  useEffect(() => {
+    if(Object.keys(data).length > 0) {
+      setHref(window.location.href)
+      setButtonText('Same Preferences Different Drink..')
+    }else{
+      setButtonText('Actually I have Some Preferences')
+    }
+  }, [])
+
   return(
     <>
       <Head>
@@ -29,11 +53,12 @@ export default function Cocktail() {
         <button className={styles.homebutton}>Home</button>
       </Link>
       <div className={styles.mainbox}>
-        <DetailView data={data} key={id}/>
+        <p>{errorMessage}</p>
+        <DetailView data={data} key={id} handleNoMatch={handleNoMatch}/>
         <div className={styles.actionBox}>
-          <button onClick={ e => handleClick(e)}className={`${styles.button} ${styles.buttonLeft}`}>Give Me Another!</button>
+          <button onClick={ e => handleClick(e)}name='randomButton' className={`${styles.button} ${styles.buttonLeft}`}>Give Me Another!</button>
         <Link href={href}>
-          <button className={`${styles.button} ${styles.buttonRight}`}>Actually I Have Some Preferences</button>
+          <button onClick={ e => handleClick(e)} className={`${styles.button} ${styles.buttonRight}`} name='preferenceButton'>{buttonText}</button>
         </Link>
         </div>
       </div>

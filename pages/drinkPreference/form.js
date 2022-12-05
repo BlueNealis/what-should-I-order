@@ -75,7 +75,7 @@ export default function Form() {
         handleClick={handleChange}
         id={"flavor"}/>
         <Link href={{pathname:'/cocktail/cocktail', query: formData}}>
-          <button>Get My Drink</button>
+          <button className={styles.drinkButton}>Get My Drink</button>
         </Link>
       </form>
     </div>
