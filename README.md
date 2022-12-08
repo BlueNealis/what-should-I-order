@@ -40,6 +40,9 @@ Figma Mock Ups
 ![Dashboard](public/images/Dashboard.png)
 ![DetailPage](public/images/RandomCocktailPage.png)
 
+### Deployment Link
+
+Deployed on vercel [here](https://what-drink-should-i-order.vercel.app/)
 
 ### Features
 - User can get random cocktails from the Cocktail Database
