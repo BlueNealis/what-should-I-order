@@ -4,8 +4,7 @@
   color: white;
   background-color: vars.$plum;
   @include vars.paragraph-font;
-  width: 90%;
-  height: 40vh;
+  width: 80%;
   border-radius: vars.$border-radius;
   text-align: center;
   display: flex;
@@ -15,12 +14,22 @@
   &:hover {
     cursor: pointer;
   }
+  li {
+    list-style: none;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
 }
 
 .optionSection {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-  margin-bottom: 10%;
+  display: flex;
+  width: 90%;
+  align-items: center;
+  justify-content: center;
 }

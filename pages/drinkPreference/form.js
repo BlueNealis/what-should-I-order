@@ -74,6 +74,13 @@ export default function Form() {
         options={allFlavors}
         handleClick={handleChange}
         id={"flavor"}/>
+        
+        <PromptBox
+        key={promptKey+4}
+        prompt={"Should it be an 'Official' Drink?"}
+        options={{Yes: false, Nah: false}}
+        handleClick={handleChange}
+        id={"IBA"}/>
         <Link href={{pathname:'/cocktail/cocktail', query: formData}}>
           <button className={styles.drinkButton}>Get My Drink</button>
         </Link>

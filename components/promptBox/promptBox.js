@@ -7,8 +7,10 @@ export const PromptBox = ({prompt, options, handleClick, id}) => {
     <div className={styles.promptBox} key={id} autocomplete="off">
       <h1>{prompt}</h1>
         <div className={styles.optionSection}>
+        <ul className={styles.list}>
       {optionKeys.map((option) => {
-        return (<label key={`${option}-label`}>
+        return (<li>
+          <label key={`${option}-label`}>
         <input
         name={id}
         value={option}
@@ -16,8 +18,10 @@ export const PromptBox = ({prompt, options, handleClick, id}) => {
         checked={options[option].state}
         onChange={(e) => handleClick(e)}
         />{option}
-        </label>)
+        </label>
+        </li>)
       })}
+      </ul>
         </div>
     </div>
   )
