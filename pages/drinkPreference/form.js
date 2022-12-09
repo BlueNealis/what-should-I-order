@@ -10,10 +10,6 @@ import Image from 'next/image'
 export default function Form() {
   const [allFlavors, setAllFlavors] = useState(flavors)
   const [alcoholType, setAlcoholType] = useState(alcohols)
-  const [booziness, setBooziness] = useState({"I don't ew":false,
-    "A little":false,
-    "A lot":false,
-    "I dont want booze":false})
   const [formData, setFormData] = useState([])
   const [promptKey, setPromptKey] = useState(Date.now)
 
@@ -34,23 +30,18 @@ export default function Form() {
       updateFormChoices("flavor", e.target.value)
       setAllFlavors(newState)
       setPromptKey(Date.now)
-    }else if(e.target.name === "booziness") {
-      let newState = booziness
-      newState[e.target.value] = !newState[e.target.value]
-      updateFormChoices("booziness",e.target.value)
-      setBooziness(newState)
-      setPromptKey(Date.now)
     }
   }
 
   const updateFormChoices = (promptType, value) => {
-    let oldForm = formData
-    oldForm.includes(value)? oldForm.splice(oldForm.indexOf(value, 1)) : oldForm.push(value)
-    setFormData(oldForm)
+    let newForm = formData
+    newForm.includes(value)? newForm.splice(oldForm.indexOf(value, 1)) : newForm.push(value)
+    setFormData(newForm)
   }
 
   const handleSubmit = (e) => {
-    e.preventDefault()
+    setAllFavors(flavors)
+    setAlcoholType(alcohols)
   }
 
   return(
@@ -74,13 +65,14 @@ export default function Form() {
         options={allFlavors}
         handleClick={handleChange}
         id={"flavor"}/>
-        
-        <PromptBox
-        key={promptKey+4}
-        prompt={"Should it be an 'Official' Drink?"}
-        options={{Yes: false, Nah: false}}
-        handleClick={handleChange}
-        id={"IBA"}/>
+
+      {  // <PromptBox
+        // key={promptKey+4}
+        // prompt={"Should it be an 'Official' Drink?"}
+        // options={{Yes: false, Nah: false}}
+        // handleClick={handleChange}
+        // id={"IBA"}/>
+      }
         <Link href={{pathname:'/cocktail/cocktail', query: formData}}>
           <button className={styles.drinkButton}>Get My Drink</button>
         </Link>
