@@ -13,7 +13,7 @@ const DetailView = ({data, key, handleNoMatch}) => {
   useEffect(() => {
     if(Object.keys(data).length > 0){
       let preferences = getPreferences()
-      getCocktailByIngredient(Object.values(data))
+      getCocktailByIngredient(preferences)
     }else{
       getRandomCocktail()
   }
@@ -22,15 +22,16 @@ const DetailView = ({data, key, handleNoMatch}) => {
   const getCocktailByIngredient = async (preferences) => {
     ingredientCocktailCall(`${preferences}`)
     .then(info => {
-      console.log(preferences)
       if(info.length === 0) {
         randomCocktailCall()
         handleNoMatch(preferences)
         return
         }else{
-        let index = getRandomNumber(info.length);
-        setCocktail(info[index])
-        getIngredients(info[index])
+        let allDrinks = info[0].concat(info[1],info[1],info[1])
+        console.log(allDrinks)
+        let index = getRandomNumber(allDrinks.length);
+        setCocktail(allDrinks[index])
+        getIngredients(allDrinks[index])
         return true
     }
       })
