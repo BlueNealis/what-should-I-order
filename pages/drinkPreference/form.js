@@ -1,6 +1,7 @@
 import styles from './form.module.scss'
 import { useState, useEffect } from 'react'
 import {flavors, alcohols} from '../../utils/flavors'
+import { useRouter } from 'next/router'
 import { PromptBox } from '../../components/promptBox/promptBox'
 import Link from 'next/link'
 import Head from 'next/head'
@@ -12,9 +13,11 @@ export default function Form() {
   const [alcoholType, setAlcoholType] = useState(alcohols)
   const [formData, setFormData] = useState([])
   const [promptKey, setPromptKey] = useState(Date.now)
+  const route = useRouter()
 
   useEffect(() => {
     setPromptKey(Date.now)
+    setFormData([])
   },[])
 
   const handleChange = (e) => {
@@ -25,7 +28,7 @@ export default function Form() {
       setAlcoholType(newState)
       setPromptKey(Date.now)
     }else if(e.target.name === "flavor") {
-      let newState = allFlavors
+      var newState = allFlavors
       newState[e.target.value].state = !newState[e.target.value].state
       updateFormChoices("flavor", e.target.value)
       setAllFlavors(newState)
@@ -39,9 +42,15 @@ export default function Form() {
     setFormData(newForm)
   }
 
-  const handleSubmit = (e) => {
-    setAllFavors(flavors)
-    setAlcoholType(alcohols)
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    await Object.keys(flavors).forEach((flavor) => {
+      flavors[flavor].state = false
+    })
+    await Object.keys(alcohols).forEach((alcohol) => {
+      alcohols[alcohol].state = false
+    })
+    route.push({pathname:'/cocktail/cocktail', query: formData})
   }
 
   return(
@@ -73,9 +82,7 @@ export default function Form() {
         // handleClick={handleChange}
         // id={"IBA"}/>
       }
-        <Link href={{pathname:'/cocktail/cocktail', query: formData}}>
-          <button className={styles.drinkButton}>Get My Drink</button>
-        </Link>
+          <button onClick={handleSubmit} className={styles.drinkButton}>Get My Drink</button>
       </form>
     </div>
   )
