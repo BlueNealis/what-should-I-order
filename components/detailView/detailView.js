@@ -27,12 +27,17 @@ const DetailView = ({data, key, handleNoMatch}) => {
         handleNoMatch(preferences)
         return
         }else{
-        let allDrinks = info[0].concat(info[1],info[1],info[1])
-        console.log(allDrinks)
-        let index = getRandomNumber(allDrinks.length);
-        setCocktail(allDrinks[index])
-        getIngredients(allDrinks[index])
+          if(info[1].length > 0) {
+            let index = getRandomNumber(info[1].length);
+            setCocktail(info[1][index])
+            getIngredients(info[1][index])
+            return true
+      } else {
+        let index = getRandomNumber(info[0].length);
+        setCocktail(info[0][index])
+        getIngredients(info[0][index])
         return true
+      }
     }
       })
   }
