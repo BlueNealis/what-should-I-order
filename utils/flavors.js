@@ -6,7 +6,7 @@ export const flavors = {
   Strawberry:{state: false, names:['strawberries', 'strawberry syrup', 'Strawberry schnapps']},
   Lemon:{state: false, names: ['lemonade', 'lemon']},
   "Chocolate":{state: false, names: ['chocolate','chocolate liqueur']},
-  "Coffee Liqueur":{state: false, names: ['coffee','kahlua', 'coffee liqueur']},
+  "Coffee":{state: false, names: ['coffee','kahlua', 'coffee liqueur']},
   "Apple":{state: false, names: ['apple juice', 'applejack', 'apple cider']},
   "Peach":{state: false, names: ['peach schnapps', 'peach nectar']},
   "Ginger":{state: false, names: ['ginger ale']},

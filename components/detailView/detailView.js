@@ -26,19 +26,19 @@ const DetailView = ({data, key, handleNoMatch}) => {
         randomCocktailCall()
         handleNoMatch(preferences)
         return
-        }else{
+        } else {
           if(info[1].length > 0) {
             let index = getRandomNumber(info[1].length);
             setCocktail(info[1][index])
             getIngredients(info[1][index])
-            return true
-      } else {
-        let index = getRandomNumber(info[0].length);
-        setCocktail(info[0][index])
-        getIngredients(info[0][index])
-        return true
+            return
+          } else {
+            let index = getRandomNumber(info[0].length);
+            setCocktail(info[0][index])
+            getIngredients(info[0][index])
+            return
       }
-    }
+        }
       })
   }
 
