@@ -4,9 +4,9 @@
   color: white;
   background-color: vars.$plum;
   @include vars.paragraph-font;
-  width: 80%;
+  width: 90%;
   border-radius: vars.$border-radius;
-  padding: 3vw;
+  padding: 2vw;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -30,7 +30,6 @@
 
 .optionSection {
   display: flex;
-  width: 90%;
   align-items: center;
   justify-content: center;
 }
@@ -38,16 +37,15 @@
 @media screen and (max-width: 1000px) {
   .promptBox {
     li {
-      margin-top: 5px;
-      margin-bottom: 5px;
+      margin: 3px;
       text-align: left;
     }
 }
 
   .optionSection {
-    width: 60vw;
+    width: 75vw;
   }
-  
+
   .list {
       grid-template-columns: repeat(2, 1fr);
   }
