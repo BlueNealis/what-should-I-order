@@ -40,6 +40,14 @@ export default function Cocktail() {
     }
   }, [])
 
+  const renderBackToOptionsButton = () => {
+    if(Object.keys(data).length > 0) {
+      return (<Link href={'/drinkPreference/form'}>
+        <button className={styles.formbutton}>Back To Options</button>
+      </Link>)
+    }
+  }
+
   return(
     <>
       <Head>
@@ -52,11 +60,12 @@ export default function Cocktail() {
       <Link href="/">
         <button className={styles.homebutton}>Home</button>
       </Link>
+      {renderBackToOptionsButton()}
       <div className={styles.mainbox}>
         <p>{errorMessage}</p>
         <DetailView data={data} key={id} handleNoMatch={handleNoMatch}/>
         <div className={styles.actionBox}>
-          <button onClick={ e => handleClick(e)}name='randomButton' className={`${styles.button} ${styles.buttonLeft}`}>Give Me Another!</button>
+          <button onClick={ e => handleClick(e)}name='randomButton' className={`${styles.button} ${styles.buttonLeft}`}>Give Me A Random One!</button>
         <Link href={href}>
           <button onClick={ e => handleClick(e)} className={`${styles.button} ${styles.buttonRight}`} name='preferenceButton'>{buttonText}</button>
         </Link>
