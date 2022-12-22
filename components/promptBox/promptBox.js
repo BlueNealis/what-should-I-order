@@ -1,7 +1,7 @@
 import styles from './promptBox.module.scss'
 
 
-export const PromptBox = ({prompt, options, handleClick, id}) => {
+export const PromptBox = ({prompt, options, value, handleClick, id}) => {
   const optionKeys = Object.keys(options)
   return(
     <div className={styles.promptBox} key={id} autocomplete="off">
@@ -13,7 +13,7 @@ export const PromptBox = ({prompt, options, handleClick, id}) => {
           <label key={`${option}-label`}>
         <input
         name={id}
-        value={option}
+        value={value ? value : option}
         type={"checkbox"}
         checked={options[option].state}
         onChange={(e) => handleClick(e)}

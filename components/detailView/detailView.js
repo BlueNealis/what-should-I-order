@@ -8,12 +8,17 @@ const DetailView = ({data, key, handleNoMatch}) => {
 
   const [cocktail, setCocktail] = useState({})
   const [ingredients, setIngredients] = useState([])
+  const [allPreferencesMessage, setPreferencesMessage] = useState('')
   const [errorMessage, setErrorMessage] = useState('')
 
   useEffect(() => {
     if(Object.keys(data).length > 0){
       let preferences = getPreferences()
-      getCocktailByIngredient(preferences)
+      if (Object.values(data).includes('iba')) {
+        getCocktailByIngredient(`${preferences}&iba=true`)
+      } else {
+        getCocktailByIngredient(preferences)
+      }
     }else{
       getRandomCocktail()
   }
@@ -30,6 +35,7 @@ const DetailView = ({data, key, handleNoMatch}) => {
           if(info[1].length > 0) {
             let index = getRandomNumber(info[1].length);
             setCocktail(info[1][index])
+            setPreferencesMessage('Awesome! We found one with all your preferences')
             getIngredients(info[1][index])
             return
           } else {
@@ -89,6 +95,7 @@ const DetailView = ({data, key, handleNoMatch}) => {
         })}</ul>
       </div>
       <h1>{errorMessage}</h1>
+      <p className={styles.paragraph}>{allPreferencesMessage}</p>
     </div>
   )
 }
