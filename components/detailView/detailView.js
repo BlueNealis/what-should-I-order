@@ -42,6 +42,7 @@ const DetailView = ({data, key, handleNoMatch}) => {
             let index = getRandomNumber(info[0].length);
             setCocktail(info[0][index])
             getIngredients(info[0][index])
+            setPreferencesMessage(`Awesome! We found a drink with one of your preferences!`)
             return
       }
         }
