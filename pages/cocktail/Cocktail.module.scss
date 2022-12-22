@@ -20,6 +20,16 @@
   padding: 1vw;
 }
 
+.formbutton {
+  position: fixed;
+  z-index: 9999;
+  @include vars.button-font();
+  @include vars.button-style();
+  left: 10vw;
+  top: 1vh;
+  padding: 1vw;
+}
+
 .button {
   @include vars.button-font();
   @include vars.button-style();
@@ -64,6 +74,17 @@
     justify-content: center;
     align-items: center;
   }
+
+  .formbutton {
+    position: fixed;
+    z-index: 9999;
+    @include vars.button-font();
+    @include vars.button-style();
+    left: 25vw;
+    top: 1vh;
+    padding: 1vw;
+  }
+
 
 
 

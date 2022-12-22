@@ -22,7 +22,7 @@ export default function Home() {
         <button className={styles.button}>Give Me a Random One!</button>
       </Link>
       <Link href='drinkPreference/form'>
-        <button className={styles.button}>I have some preferences...</button>
+        <button className={styles.button}>I have some preferences</button>
       </Link>
       </div>
     </div>

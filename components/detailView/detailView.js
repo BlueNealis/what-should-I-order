@@ -8,12 +8,17 @@ const DetailView = ({data, key, handleNoMatch}) => {
 
   const [cocktail, setCocktail] = useState({})
   const [ingredients, setIngredients] = useState([])
+  const [allPreferencesMessage, setPreferencesMessage] = useState('')
   const [errorMessage, setErrorMessage] = useState('')
 
   useEffect(() => {
     if(Object.keys(data).length > 0){
       let preferences = getPreferences()
-      getCocktailByIngredient(preferences)
+      if (Object.values(data).includes('iba')) {
+        getCocktailByIngredient(`${preferences}&iba=true`)
+      } else {
+        getCocktailByIngredient(preferences)
+      }
     }else{
       getRandomCocktail()
   }
@@ -23,17 +28,24 @@ const DetailView = ({data, key, handleNoMatch}) => {
     ingredientCocktailCall(`${preferences}`)
     .then(info => {
       if(info.length === 0) {
-        randomCocktailCall()
         handleNoMatch(preferences)
+        randomCocktailCall()
         return
-        }else{
-        let allDrinks = info[0].concat(info[1],info[1],info[1])
-        console.log(allDrinks)
-        let index = getRandomNumber(allDrinks.length);
-        setCocktail(allDrinks[index])
-        getIngredients(allDrinks[index])
-        return true
-    }
+        } else {
+          if(info[1].length > 0) {
+            let index = getRandomNumber(info[1].length);
+            setCocktail(info[1][index])
+            setPreferencesMessage('Awesome! We found one with all your preferences')
+            getIngredients(info[1][index])
+            return
+          } else {
+            let index = getRandomNumber(info[0].length);
+            setCocktail(info[0][index])
+            getIngredients(info[0][index])
+            setPreferencesMessage(`Awesome! We found a drink with one of your preferences!`)
+            return
+      }
+        }
       })
   }
 
@@ -84,6 +96,7 @@ const DetailView = ({data, key, handleNoMatch}) => {
         })}</ul>
       </div>
       <h1>{errorMessage}</h1>
+      <p className={styles.paragraph}>{allPreferencesMessage}</p>
     </div>
   )
 }
