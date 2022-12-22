@@ -28,8 +28,8 @@ const DetailView = ({data, key, handleNoMatch}) => {
     ingredientCocktailCall(`${preferences}`)
     .then(info => {
       if(info.length === 0) {
-        randomCocktailCall()
         handleNoMatch(preferences)
+        randomCocktailCall()
         return
         } else {
           if(info[1].length > 0) {
